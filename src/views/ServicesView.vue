@@ -1,13 +1,3 @@
-// Package Selection with auto-suggestions const selectPackage = (packageName: string) => {
-console.log('Selected package:', packageName) // Update investment and suggest improvements based on
-package switch (packageName) { case 'tech-essentials': calculator.investment = 200000 // Suggest
-modest improvements if (calculator.baselineTraffic > 0) { calculator.newTraffic =
-Math.round(calculator.baselineTraffic * 1.25) // +25% } if (calculator.baselineConversion > 0) {
-calculator.newConversion = Math.round((calculator.baselineConversion * 1.15) * 10) / 10 // +15% }
-break case 'scale-ready': calculator.investment = 315000 // Suggest better improvements if
-(calculator.baselineTraffic > 0) { calculator.newTraffic = Math.round(calculator.baselineTraffic *
-1.4) // +40% } if (calculator.baselineConversion > 0) { calculator.newConversion =
-Math.round((calculator.baselineConversion * 1.25) * 10) / 10 // +25%
 <template>
   <div class="services-page">
     <!-- Services Hero -->
@@ -528,7 +518,7 @@ Math.round((calculator.baselineConversion * 1.25) * 10) / 10 // +25%
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <div>
                     <label class="block text-sm font-600 text-gray-300 mb-1"
-                      >Hodnota zákazníka (Kč)</label
+                      >Průměrná cena obchodu (Kč)</label
                     >
                     <input
                       v-model.number="calculator.averageOrder"
@@ -556,7 +546,7 @@ Math.round((calculator.baselineConversion * 1.25) * 10) / 10 // +25%
 
                 <div class="border-t border-gray-700 pt-4">
                   <h4 class="text-lg font-700 text-light mb-3 flex items-center gap-2">
-                    <span class="text-secondary">🚀</span> Potenciální zlepšení
+                    <span class="text-secondary">🚀</span> Prognóza podle vybraného balíčku
                   </h4>
 
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -564,29 +554,28 @@ Math.round((calculator.baselineConversion * 1.25) * 10) / 10 // +25%
                       <label class="block text-sm font-600 text-gray-300 mb-1"
                         >Nová návštěvnost</label
                       >
-                      <input
-                        v-model.number="calculator.newTraffic"
-                        type="number"
-                        min="0"
-                        step="100"
-                        class="w-full p-3 bg-gray-800 border border-gray-600 rounded text-light focus:border-secondary outline-none text-sm"
-                        placeholder="25000"
-                      />
+                      <div
+                        class="w-full p-3 bg-gray-700 border border-gray-600 rounded text-light text-sm flex items-center justify-between"
+                      >
+                        <span>{{ formatNumber(projectedMetrics.newTraffic) }}</span>
+                        <span class="text-green-400 text-xs"
+                          >+{{ projectedMetrics.trafficIncrease }}%</span
+                        >
+                      </div>
                     </div>
 
                     <div>
                       <label class="block text-sm font-600 text-gray-300 mb-1"
                         >Nová konverze (%)</label
                       >
-                      <input
-                        v-model.number="calculator.newConversion"
-                        type="number"
-                        min="0"
-                        max="100"
-                        step="0.1"
-                        class="w-full p-3 bg-gray-800 border border-gray-600 rounded text-light focus:border-secondary outline-none text-sm"
-                        placeholder="4"
-                      />
+                      <div
+                        class="w-full p-3 bg-gray-700 border border-gray-600 rounded text-light text-sm flex items-center justify-between"
+                      >
+                        <span>{{ projectedMetrics.newConversion.toFixed(1) }}%</span>
+                        <span class="text-green-400 text-xs"
+                          >+{{ projectedMetrics.conversionIncrease }}%</span
+                        >
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -597,13 +586,13 @@ Math.round((calculator.baselineConversion * 1.25) * 10) / 10 // +25%
                       >Investice do brandingu</label
                     >
                     <select
-                      v-model.number="calculator.investment"
-                      @change="updateProjections"
+                      v-model="calculator.selectedPackage"
+                      @change="updateInvestmentFromPackage"
                       class="w-full p-3 bg-gray-800 border border-gray-600 rounded text-light focus:border-secondary outline-none text-sm"
                     >
-                      <option value="200000">Tech Essentials (200k Kč)</option>
-                      <option value="315000">Scale Ready (315k Kč)</option>
-                      <option value="485000">Market Leader (485k Kč)</option>
+                      <option value="tech-essentials">Tech Essentials (200k Kč)</option>
+                      <option value="scale-ready">Scale Ready (315k Kč)</option>
+                      <option value="market-leader">Market Leader (485k Kč)</option>
                     </select>
                   </div>
 
@@ -624,20 +613,13 @@ Math.round((calculator.baselineConversion * 1.25) * 10) / 10 // +25%
               </div>
             </div>
 
-            <!-- Results - Kompaktnější -->
+            <!-- Results -->
             <div class="space-y-3">
               <h3 class="text-xl font-700 text-light mb-4 flex items-center gap-2">
                 <span class="text-secondary">📈</span> Potenciální výsledky
               </h3>
 
               <div class="grid grid-cols-2 gap-3">
-                <div class="bg-gray-800 p-4 rounded-lg text-center">
-                  <h4 class="text-secondary text-xs font-600 mb-1">Současný zisk</h4>
-                  <p class="text-lg font-800 text-light">
-                    {{ formatCurrency(results.baselineProfit) }}
-                  </p>
-                </div>
-
                 <div class="bg-gray-800 p-4 rounded-lg text-center border border-secondary/30">
                   <h4 class="text-secondary text-xs font-600 mb-1">Možný zisk</h4>
                   <p class="text-lg font-800 text-light">
@@ -927,10 +909,41 @@ const calculator = reactive({
   baselineConversion: 3,
   averageOrder: 25000,
   profitMargin: 40,
-  newTraffic: 23000,
-  newConversion: 3.9,
   investment: 315000,
   horizon: 12,
+  selectedPackage: 'scale-ready',
+})
+
+// Package performance multipliers
+const packageMultipliers = {
+  'tech-essentials': {
+    trafficIncrease: 25,
+    conversionIncrease: 15,
+  },
+  'scale-ready': {
+    trafficIncrease: 40,
+    conversionIncrease: 25,
+  },
+  'market-leader': {
+    trafficIncrease: 60,
+    conversionIncrease: 40,
+  },
+}
+
+// Projected metrics based on selected package
+const projectedMetrics = computed(() => {
+  const multiplier =
+    packageMultipliers[calculator.selectedPackage as keyof typeof packageMultipliers]
+
+  const newTraffic = Math.round(calculator.baselineTraffic * (1 + multiplier.trafficIncrease / 100))
+  const newConversion = calculator.baselineConversion * (1 + multiplier.conversionIncrease / 100)
+
+  return {
+    newTraffic,
+    newConversion,
+    trafficIncrease: multiplier.trafficIncrease,
+    conversionIncrease: multiplier.conversionIncrease,
+  }
 })
 
 // ROI Calculator Results
@@ -939,8 +952,8 @@ const results = computed(() => {
   const CR0 = (calculator.baselineConversion || 0) / 100
   const AOV = calculator.averageOrder || 0
   const M = (calculator.profitMargin || 0) / 100
-  const N1 = calculator.newTraffic || 0
-  const CR1 = (calculator.newConversion || 0) / 100
+  const N1 = projectedMetrics.value.newTraffic
+  const CR1 = projectedMetrics.value.newConversion / 100
   const months = calculator.horizon || 12
   const I = calculator.investment || 0
 
@@ -962,14 +975,24 @@ const results = computed(() => {
   }
 })
 
-// Package Selection
+// Package Selection with auto-suggestions
 const selectPackage = (packageName: string) => {
-  // Pre-fill contact form with selected package
-  // This would typically emit an event or update a store
   console.log('Selected package:', packageName)
 
-  // For now, just update the calculator investment
-  switch (packageName) {
+  // Update selected package and investment
+  calculator.selectedPackage = packageName
+  updateInvestmentFromPackage()
+
+  // Scroll to ROI calculator
+  const roiSection = document.getElementById('roi-calculator')
+  if (roiSection) {
+    roiSection.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+
+// Update investment when package changes in dropdown
+const updateInvestmentFromPackage = () => {
+  switch (calculator.selectedPackage) {
     case 'tech-essentials':
       calculator.investment = 200000
       break
@@ -980,12 +1003,6 @@ const selectPackage = (packageName: string) => {
       calculator.investment = 485000
       break
   }
-
-  // Scroll to ROI calculator
-  const roiSection = document.getElementById('roi-calculator')
-  if (roiSection) {
-    roiSection.scrollIntoView({ behavior: 'smooth' })
-  }
 }
 
 // Utility Functions
@@ -995,6 +1012,10 @@ const formatCurrency = (amount: number): string => {
     currency: 'CZK',
     maximumFractionDigits: 0,
   }).format(amount)
+}
+
+const formatNumber = (num: number): string => {
+  return new Intl.NumberFormat('cs-CZ').format(num)
 }
 </script>
 
