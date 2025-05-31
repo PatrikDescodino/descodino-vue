@@ -449,454 +449,8 @@
       </div>
     </section>
 
-    <!-- ROI Calculator -->
-    <section
-      id="roi-calculator"
-      class="section-padding bg-dark text-light relative overflow-hidden"
-    >
-      <!-- Green gradient sides for positive results -->
-      <div class="absolute inset-0" v-if="results.roi > 0">
-        <div
-          class="absolute left-0 top-0 bottom-0 w-1/4 bg-gradient-to-r from-green-600/20 to-transparent"
-        ></div>
-        <div
-          class="absolute right-0 top-0 bottom-0 w-1/4 bg-gradient-to-l from-green-600/20 to-transparent"
-        ></div>
-      </div>
-
-      <div class="container-custom relative z-10">
-        <div class="max-w-6xl mx-auto">
-          <div class="text-center mb-8">
-            <h2 class="heading-lg text-light mb-4">
-              <span class="text-secondary">💰</span> Vypočítejte si návratnost investice do
-              brandingu
-            </h2>
-            <p class="body-lg text-gray-300 max-w-3xl mx-auto">
-              Zadejte údaje o vaší tech firmě a zjistěte potenciální dopad profesionálního brandingu
-              na váš business.
-              <span class="text-secondary">Výsledky jsou orientační!</span>
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <!-- Input Form - vylepšený design -->
-            <div class="bg-gray-900 p-6 rounded-xl border border-gray-700">
-              <h3 class="text-xl font-700 text-light mb-6 flex items-center gap-2">
-                <span class="text-secondary">📊</span> Vaše současné údaje
-              </h3>
-
-              <div class="space-y-6">
-                <!-- Základní metriky -->
-                <div class="space-y-4">
-                  <h4 class="text-sm font-600 text-gray-300 flex items-center gap-2">
-                    <span class="w-2 h-2 bg-secondary rounded-full"></span>
-                    Současné performance
-                  </h4>
-
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label class="block text-sm font-600 text-gray-300 mb-2">
-                        Měsíční návštěvnost
-                        <span class="text-gray-500 font-400">(unique visitors)</span>
-                      </label>
-                      <input
-                        v-model.number="calculator.baselineTraffic"
-                        type="number"
-                        min="0"
-                        step="100"
-                        class="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-light focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all duration-200"
-                        placeholder="20 000"
-                      />
-                      <p class="text-xs text-gray-500 mt-1">Unikátní návštěvníci za měsíc</p>
-                    </div>
-
-                    <div>
-                      <label class="block text-sm font-600 text-gray-300 mb-2">
-                        Konverzní poměr
-                        <span class="text-gray-500 font-400">(%)</span>
-                      </label>
-                      <input
-                        v-model.number="calculator.baselineConversion"
-                        type="number"
-                        min="0"
-                        max="100"
-                        step="0.1"
-                        class="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-light focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all duration-200"
-                        placeholder="3.0"
-                      />
-                      <p class="text-xs text-gray-500 mt-1">% návštěvníků, kteří koupí</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Business metriky -->
-                <div class="space-y-4">
-                  <h4 class="text-sm font-600 text-gray-300 flex items-center gap-2">
-                    <span class="w-2 h-2 bg-primary rounded-full"></span>
-                    Business model
-                  </h4>
-
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label class="block text-sm font-600 text-gray-300 mb-2">
-                        Průměrná hodnota obchodu
-                        <span class="text-gray-500 font-400">(Kč)</span>
-                      </label>
-                      <input
-                        v-model.number="calculator.averageOrder"
-                        type="number"
-                        min="0"
-                        step="1000"
-                        class="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-light focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all duration-200"
-                        placeholder="25 000"
-                      />
-                      <p class="text-xs text-gray-500 mt-1">AOV - average order value</p>
-                    </div>
-
-                    <div>
-                      <label class="block text-sm font-600 text-gray-300 mb-2">
-                        Zisková marže
-                        <span class="text-gray-500 font-400">(%)</span>
-                      </label>
-                      <input
-                        v-model.number="calculator.profitMargin"
-                        type="number"
-                        min="0"
-                        max="100"
-                        step="1"
-                        class="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-light focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all duration-200"
-                        placeholder="40"
-                      />
-                      <p class="text-xs text-gray-500 mt-1">Čistá marže po nákladech</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Prognóza na základě balíčku -->
-                <div class="border-t border-gray-700 pt-6 space-y-4">
-                  <h4 class="text-sm font-600 text-gray-300 flex items-center gap-2">
-                    <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-                    Očekávané zlepšení po rebrandingu
-                  </h4>
-
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label class="block text-sm font-600 text-gray-300 mb-2"
-                        >Nová návštěvnost</label
-                      >
-                      <div class="relative">
-                        <div
-                          class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-light flex items-center justify-between"
-                        >
-                          <span class="font-600">{{
-                            formatNumber(projectedMetrics.newTraffic)
-                          }}</span>
-                          <span
-                            class="text-green-400 text-sm font-600 bg-green-400/10 px-2 py-1 rounded"
-                          >
-                            +{{ projectedMetrics.trafficIncrease }}%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label class="block text-sm font-600 text-gray-300 mb-2">Nová konverze</label>
-                      <div class="relative">
-                        <div
-                          class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-light flex items-center justify-between"
-                        >
-                          <span class="font-600"
-                            >{{ projectedMetrics.newConversion.toFixed(1) }}%</span
-                          >
-                          <span
-                            class="text-green-400 text-sm font-600 bg-green-400/10 px-2 py-1 rounded"
-                          >
-                            +{{ projectedMetrics.conversionIncrease }}%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Balíček a horizont -->
-                <div class="border-t border-gray-700 pt-6 space-y-4">
-                  <h4 class="text-sm font-600 text-gray-300 flex items-center gap-2">
-                    <span class="w-2 h-2 bg-primary rounded-full"></span>
-                    Investice a horizont
-                  </h4>
-
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label class="block text-sm font-600 text-gray-300 mb-2"
-                        >Brandingový balíček</label
-                      >
-                      <select
-                        v-model="calculator.selectedPackage"
-                        @change="updateInvestmentFromPackage"
-                        class="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-light focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all duration-200"
-                      >
-                        <option value="tech-essentials">Tech Essentials (200k Kč)</option>
-                        <option value="scale-ready">Scale Ready (315k Kč)</option>
-                        <option value="market-leader">Market Leader (485k Kč)</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label class="block text-sm font-600 text-gray-300 mb-2">
-                        Časový horizont: {{ calculator.horizon }} měsíců
-                      </label>
-                      <input
-                        v-model.number="calculator.horizon"
-                        type="range"
-                        min="3"
-                        max="24"
-                        step="1"
-                        class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider"
-                      />
-                      <div class="flex justify-between text-xs text-gray-500 mt-1">
-                        <span>3m</span>
-                        <span>12m</span>
-                        <span>24m</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Quick insights -->
-                <div class="bg-gray-800/50 p-4 rounded-lg border border-gray-700">
-                  <div class="text-xs text-gray-400 space-y-1">
-                    <div class="flex justify-between">
-                      <span>Současné měsíční obchody:</span>
-                      <span class="text-light">{{
-                        Math.round(
-                          (calculator.baselineTraffic * calculator.baselineConversion) / 100,
-                        )
-                      }}</span>
-                    </div>
-                    <div class="flex justify-between">
-                      <span>Potenciální nové obchody:</span>
-                      <span class="text-secondary">{{
-                        Math.round(
-                          (projectedMetrics.newTraffic * projectedMetrics.newConversion) / 100,
-                        )
-                      }}</span>
-                    </div>
-                    <div class="flex justify-between font-600 pt-2 border-t border-gray-700">
-                      <span>Nárůst obchodů:</span>
-                      <span class="text-green-400"
-                        >+{{
-                          Math.round(
-                            (projectedMetrics.newTraffic * projectedMetrics.newConversion) / 100 -
-                              (calculator.baselineTraffic * calculator.baselineConversion) / 100,
-                          )
-                        }}/měsíc</span
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- ROI Calculator Results - sjednocený design -->
-            <div class="space-y-4">
-              <h3 class="text-xl font-700 text-light mb-6 flex items-center gap-2">
-                <span class="text-secondary">📈</span> Potenciální výsledky
-              </h3>
-
-              <!-- Hlavní metriky - všechny stejné velikosti -->
-              <div class="grid grid-cols-1 gap-4">
-                <!-- Současný stav vs Nový stav -->
-                <div class="bg-gray-900 p-4 rounded-lg border border-gray-700">
-                  <div class="grid grid-cols-2 gap-4">
-                    <div class="text-center">
-                      <h4 class="text-gray-400 text-xs font-600 mb-2">Současný měsíční zisk</h4>
-                      <p class="text-lg font-800 text-gray-300">
-                        {{ formatCurrency(results.baselineProfit) }}
-                      </p>
-                    </div>
-                    <div class="text-center">
-                      <h4 class="text-secondary text-xs font-600 mb-2">Nový měsíční zisk</h4>
-                      <p class="text-lg font-800 text-light">
-                        {{ formatCurrency(results.projectedProfit) }}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Navýšení zisku - největší důraz -->
-                <div
-                  class="bg-gradient-to-r from-secondary/20 to-primary/20 p-6 rounded-lg border border-secondary/50 text-center"
-                >
-                  <h4 class="text-secondary text-sm font-600 mb-2">Potenciální navýšení zisku</h4>
-                  <p class="text-3xl font-900 text-light mb-1">
-                    {{ formatCurrency(results.incrementalProfit) }}
-                  </p>
-                  <p class="text-xs text-gray-300">měsíčně</p>
-                </div>
-
-                <!-- ROI a Payback - stejná velikost -->
-                <div class="grid grid-cols-2 gap-4">
-                  <div
-                    class="p-4 rounded-lg text-center border"
-                    :class="
-                      results.roi > 0
-                        ? 'bg-green-900/30 border-green-600'
-                        : 'bg-gray-800 border-gray-600'
-                    "
-                  >
-                    <h4
-                      class="text-xs font-600 mb-2"
-                      :class="results.roi > 0 ? 'text-green-400' : 'text-gray-400'"
-                    >
-                      ROI za {{ calculator.horizon }}m
-                    </h4>
-                    <p
-                      class="text-2xl font-800"
-                      :class="results.roi > 0 ? 'text-green-400' : 'text-gray-400'"
-                    >
-                      {{ (results.roi * 100).toFixed(0) }}%
-                    </p>
-                  </div>
-
-                  <div class="bg-gray-800 p-4 rounded-lg text-center border border-gray-600">
-                    <h4 class="text-secondary text-xs font-600 mb-2">Doba návratnosti</h4>
-                    <p class="text-2xl font-800 text-light">
-                      {{
-                        results.paybackPeriod === Infinity
-                          ? '–'
-                          : Math.round(results.paybackPeriod) + 'm'
-                      }}
-                    </p>
-                  </div>
-                </div>
-
-                <!-- Detailní breakdown - rozbalovací -->
-                <details class="bg-gray-900 rounded-lg border border-gray-700">
-                  <summary
-                    class="p-4 cursor-pointer hover:bg-gray-800 rounded-lg transition-colors"
-                  >
-                    <span class="text-sm font-600 text-gray-300"
-                      >📊 Detailní breakdown výpočtů</span
-                    >
-                  </summary>
-                  <div class="p-4 pt-0 space-y-3">
-                    <div class="grid grid-cols-2 gap-4 text-xs">
-                      <div class="space-y-2">
-                        <div class="flex justify-between">
-                          <span class="text-gray-400">Současná návštěvnost:</span>
-                          <span class="text-light"
-                            >{{ formatNumber(calculator.baselineTraffic) }}/měsíc</span
-                          >
-                        </div>
-                        <div class="flex justify-between">
-                          <span class="text-gray-400">Současná konverze:</span>
-                          <span class="text-light">{{ calculator.baselineConversion }}%</span>
-                        </div>
-                        <div class="flex justify-between">
-                          <span class="text-gray-400">Současné obchody:</span>
-                          <span class="text-light"
-                            >{{
-                              Math.round(
-                                (calculator.baselineTraffic * calculator.baselineConversion) / 100,
-                              )
-                            }}/měsíc</span
-                          >
-                        </div>
-                      </div>
-                      <div class="space-y-2">
-                        <div class="flex justify-between">
-                          <span class="text-gray-400">Nová návštěvnost:</span>
-                          <span class="text-secondary"
-                            >{{ formatNumber(projectedMetrics.newTraffic) }}/měsíc</span
-                          >
-                        </div>
-                        <div class="flex justify-between">
-                          <span class="text-gray-400">Nová konverze:</span>
-                          <span class="text-secondary"
-                            >{{ projectedMetrics.newConversion.toFixed(1) }}%</span
-                          >
-                        </div>
-                        <div class="flex justify-between">
-                          <span class="text-gray-400">Nové obchody:</span>
-                          <span class="text-secondary"
-                            >{{
-                              Math.round(
-                                (projectedMetrics.newTraffic * projectedMetrics.newConversion) /
-                                  100,
-                              )
-                            }}/měsíc</span
-                          >
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="border-t border-gray-700 pt-3">
-                      <div class="flex justify-between text-xs">
-                        <span class="text-gray-400"
-                          >Celkový nárůst za {{ calculator.horizon }} měsíců:</span
-                        >
-                        <span class="text-green-400 font-600">{{
-                          formatCurrency(results.incrementalProfit * calculator.horizon)
-                        }}</span>
-                      </div>
-                      <div class="flex justify-between text-xs">
-                        <span class="text-gray-400">Mínus investice do brandingu:</span>
-                        <span class="text-red-400"
-                          >-{{ formatCurrency(calculator.investment) }}</span
-                        >
-                      </div>
-                      <div
-                        class="flex justify-between text-sm font-600 pt-2 border-t border-gray-700"
-                      >
-                        <span class="text-light">Čistý zisk:</span>
-                        <span :class="results.roi > 0 ? 'text-green-400' : 'text-red-400'">
-                          {{
-                            formatCurrency(
-                              results.incrementalProfit * calculator.horizon -
-                                calculator.investment,
-                            )
-                          }}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </details>
-
-                <!-- Disclaimer -->
-                <div class="bg-orange-900/20 border border-orange-600/30 p-4 rounded-lg">
-                  <div class="flex items-start gap-3">
-                    <span class="text-orange-400 mt-0.5">⚠️</span>
-                    <div>
-                      <h4 class="text-orange-200 font-600 text-sm mb-1">Orientační výpočet</h4>
-                      <p class="text-xs text-orange-200/80 leading-relaxed">
-                        Kalkulačka používá průměrné hodnoty z našich projektů. Skutečné výsledky se
-                        mohou významně lišit podle oboru, kvality současného brandingu a dalších
-                        faktorů.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Process Section - Timeline Design -->
     <section class="section-padding bg-light relative overflow-hidden">
-      <!-- Background decoration -->
-      <div class="absolute inset-0">
-        <div
-          class="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-secondary/30 to-transparent"
-        ></div>
-        <div
-          class="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-primary/30 to-transparent"
-        ></div>
-      </div>
-
       <div class="container-custom relative z-10">
         <div class="text-center mb-16">
           <h2 class="heading-lg mb-4">Jak probíhá naše spolupráce krok za krokem</h2>
@@ -907,10 +461,10 @@
         </div>
 
         <!-- Timeline Container -->
-        <div class="max-w-5xl mx-auto relative">
+        <div ref="timelineRef" class="max-w-5xl mx-auto relative">
           <!-- Vertikální časová osa -->
           <div
-            class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gray-300 h-full rounded-full"
+            class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gray-300 h-full rounded-full timeline-track"
           >
             <!-- Timeline gradient -->
             <div
@@ -919,21 +473,21 @@
 
             <!-- Progress indicator (animate on scroll) -->
             <div
-              class="absolute top-0 left-0 w-full bg-gradient-to-b from-secondary to-primary rounded-full transition-all duration-1000 ease-out timeline-progress"
-              style="height: 0%"
+              class="absolute top-0 left-0 w-full bg-gradient-to-b from-secondary to-primary rounded-full timeline-progress"
+              :style="{ height: `${timelineProgress}%` }"
             ></div>
           </div>
 
           <!-- Timeline Steps -->
           <div class="space-y-24">
             <!-- Step 1 - Left Side -->
-            <div class="relative group">
+            <div :ref="(el) => stepRefs[0] = el as HTMLElement" class="relative group timeline-step" :class="{ 'step-visible': visibleSteps.has(0) }">
               <!-- Timeline node -->
               <div
-                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-20"
+                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-20 timeline-node"
               >
                 <div
-                  class="w-16 h-16 bg-secondary text-light rounded-full flex-center text-2xl font-800 shadow-lg group-hover:scale-110 transition-all duration-300 border-4 border-white"
+                  class="w-16 h-16 bg-secondary text-light rounded-full flex-center text-2xl font-800 shadow-lg border-4 border-white timeline-node-circle"
                 >
                   1
                 </div>
@@ -999,13 +553,13 @@
             </div>
 
             <!-- Step 2 - Right Side -->
-            <div class="relative group">
+            <div :ref="(el) => stepRefs[1] = el as HTMLElement" class="relative group timeline-step" :class="{ 'step-visible': visibleSteps.has(1) }">
               <!-- Timeline node -->
               <div
-                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-20"
+                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-20 timeline-node"
               >
                 <div
-                  class="w-16 h-16 bg-primary text-light rounded-full flex-center text-2xl font-800 shadow-lg group-hover:scale-110 transition-all duration-300 border-4 border-white"
+                  class="w-16 h-16 bg-primary text-light rounded-full flex-center text-2xl font-800 shadow-lg border-4 border-white timeline-node-circle"
                 >
                   2
                 </div>
@@ -1050,14 +604,6 @@
                     <ul class="grid grid-cols-1 gap-2 text-sm">
                       <li class="flex items-center gap-2">
                         <span class="text-primary text-xs">✓</span>
-                        <span>Logo koncepty (2-3 směry)</span>
-                      </li>
-                      <li class="flex items-center gap-2">
-                        <span class="text-primary text-xs">✓</span>
-                        <span>Barevná paleta a typografie</span>
-                      </li>
-                      <li class="flex items-center gap-2">
-                        <span class="text-primary text-xs">✓</span>
                         <span>Visual mood board</span>
                       </li>
                       <li class="flex items-center gap-2">
@@ -1071,13 +617,13 @@
             </div>
 
             <!-- Step 3 - Left Side -->
-            <div class="relative group">
+            <div :ref="(el) => stepRefs[2] = el as HTMLElement" class="relative group timeline-step" :class="{ 'step-visible': visibleSteps.has(2) }">
               <!-- Timeline node -->
               <div
-                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-20"
+                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-20 timeline-node"
               >
                 <div
-                  class="w-16 h-16 bg-secondary text-light rounded-full flex-center text-2xl font-800 shadow-lg group-hover:scale-110 transition-all duration-300 border-4 border-white"
+                  class="w-16 h-16 bg-secondary text-light rounded-full flex-center text-2xl font-800 shadow-lg border-4 border-white timeline-node-circle"
                 >
                   3
                 </div>
@@ -1143,13 +689,13 @@
             </div>
 
             <!-- Step 4 - Right Side -->
-            <div class="relative group">
+            <div :ref="(el) => stepRefs[3] = el as HTMLElement" class="relative group timeline-step" :class="{ 'step-visible': visibleSteps.has(3) }">
               <!-- Timeline node -->
               <div
-                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-20"
+                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-20 timeline-node"
               >
                 <div
-                  class="w-16 h-16 bg-primary text-light rounded-full flex-center text-2xl font-800 shadow-lg group-hover:scale-110 transition-all duration-300 border-4 border-white"
+                  class="w-16 h-16 bg-primary text-light rounded-full flex-center text-2xl font-800 shadow-lg border-4 border-white timeline-node-circle"
                 >
                   4
                 </div>
@@ -1223,7 +769,7 @@
           </div>
         </div>
 
-        <!-- Process Guarantees - vylepšený design -->
+        <!-- Process Guarantees -->
         <div class="mt-24 pt-16 border-t border-gray-300">
           <h3 class="text-2xl font-800 text-center mb-12">Naše záruky kvality</h3>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -1314,12 +860,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, reactive } from 'vue'
+import { ref, computed, reactive, onMounted, onUnmounted } from 'vue'
 
 // Emits
 defineEmits<{
   openContactModal: []
 }>()
+
+// Timeline Animation State
+const timelineProgress = ref(0)
+const visibleSteps = ref<Set<number>>(new Set())
+const timelineRef = ref<HTMLElement>()
+const stepRefs = ref<HTMLElement[]>([])
+
+// Intersection Observer for timeline animations
+let timelineObserver: IntersectionObserver | null = null
+let stepObservers: IntersectionObserver[] = []
 
 // ROI Calculator State
 const calculator = reactive({
@@ -1435,12 +991,138 @@ const formatCurrency = (amount: number): string => {
 const formatNumber = (num: number): string => {
   return new Intl.NumberFormat('cs-CZ').format(num)
 }
+
+// Timeline Animation Setup
+const setupTimelineAnimation = () => {
+  if (!timelineRef.value) return
+
+  // Observer for timeline progress
+  timelineObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const rect = entry.boundingClientRect
+          const scrollProgress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / rect.height))
+          timelineProgress.value = scrollProgress * 100
+        }
+      })
+    },
+    { 
+      rootMargin: '-10% 0px -10% 0px',
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+    }
+  )
+
+  timelineObserver.observe(timelineRef.value)
+
+  // Observer for individual steps
+  stepRefs.value.forEach((stepEl, index) => {
+    if (!stepEl) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visibleSteps.value.add(index)
+          }
+        })
+      },
+      { 
+        rootMargin: '-20% 0px -20% 0px',
+        threshold: 0.3
+      }
+    )
+
+    observer.observe(stepEl)
+    stepObservers.push(observer)
+  })
+}
+
+const cleanupTimelineAnimation = () => {
+  if (timelineObserver) {
+    timelineObserver.disconnect()
+    timelineObserver = null
+  }
+
+  stepObservers.forEach(observer => observer.disconnect())
+  stepObservers = []
+}
+
+// Lifecycle
+onMounted(() => {
+  // Delay to ensure DOM is ready
+  setTimeout(setupTimelineAnimation, 100)
+})
+
+onUnmounted(() => {
+  cleanupTimelineAnimation()
+})
 </script>
 
 <style scoped>
 .package-detail {
   scroll-margin-top: 100px;
 }
+
+/* Timeline Animations */
+.timeline-track {
+  will-change: transform;
+}
+
+.timeline-progress {
+  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: height;
+}
+
+.timeline-step {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.timeline-step.step-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-node-circle {
+  transform: scale(0);
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.step-visible .timeline-node-circle {
+  transform: scale(1);
+}
+
+/* Content slide animations */
+.timeline-step .lg\\:text-right > * {
+  transform: translateX(-50px);
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.timeline-step:nth-child(even) .order-1 > * {
+  transform: translateX(50px);
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.step-visible .lg\\:text-right > *,
+.step-visible .order-1 > * {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Staggered animation delays */
+.step-visible .lg\\:text-right > *:nth-child(1) { transition-delay: 0.1s; }
+.step-visible .lg\\:text-right > *:nth-child(2) { transition-delay: 0.2s; }
+.step-visible .lg\\:text-right > *:nth-child(3) { transition-delay: 0.3s; }
+.step-visible .lg\\:text-right > *:nth-child(4) { transition-delay: 0.4s; }
+
+.step-visible .order-1 > *:nth-child(1) { transition-delay: 0.1s; }
+.step-visible .order-1 > *:nth-child(2) { transition-delay: 0.2s; }
+.step-visible .order-1 > *:nth-child(3) { transition-delay: 0.3s; }
+.step-visible .order-1 > *:nth-child(4) { transition-delay: 0.4s; }
 
 /* Custom slider styling */
 .slider::-webkit-slider-thumb {
@@ -1476,25 +1158,6 @@ select:focus {
 
 .roi-metric:hover {
   transform: translateY(-2px);
-}
-
-/* Timeline animations */
-.timeline-progress {
-  animation: fillTimeline 3s ease-out forwards;
-}
-
-@keyframes fillTimeline {
-  from {
-    height: 0%;
-  }
-  to {
-    height: 100%;
-  }
-}
-
-/* Intersection Observer trigger would control this in real implementation */
-.timeline-step-visible .timeline-progress {
-  height: 100%;
 }
 
 /* Hover effects for guarantees */
