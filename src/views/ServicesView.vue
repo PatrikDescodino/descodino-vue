@@ -885,9 +885,19 @@
       </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="section-padding bg-light">
-      <div class="container-custom">
+    <!-- Process Section - Timeline Design -->
+    <section class="section-padding bg-light relative overflow-hidden">
+      <!-- Background decoration -->
+      <div class="absolute inset-0">
+        <div
+          class="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-secondary/30 to-transparent"
+        ></div>
+        <div
+          class="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-primary/30 to-transparent"
+        ></div>
+      </div>
+
+      <div class="container-custom relative z-10">
         <div class="text-center mb-16">
           <h2 class="heading-lg mb-4">Jak probíhá naše spolupráce krok za krokem</h2>
           <p class="body-lg text-gray-dark max-w-3xl mx-auto">
@@ -896,178 +906,378 @@
           </p>
         </div>
 
-        <div class="max-w-4xl mx-auto">
-          <div class="space-y-12">
-            <!-- Step 1 -->
-            <div class="flex gap-8 items-start">
-              <div class="flex-shrink-0">
+        <!-- Timeline Container -->
+        <div class="max-w-5xl mx-auto relative">
+          <!-- Vertikální časová osa -->
+          <div
+            class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gray-300 h-full rounded-full"
+          >
+            <!-- Timeline gradient -->
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-secondary via-primary to-secondary rounded-full opacity-60"
+            ></div>
+
+            <!-- Progress indicator (animate on scroll) -->
+            <div
+              class="absolute top-0 left-0 w-full bg-gradient-to-b from-secondary to-primary rounded-full transition-all duration-1000 ease-out timeline-progress"
+              style="height: 0%"
+            ></div>
+          </div>
+
+          <!-- Timeline Steps -->
+          <div class="space-y-24">
+            <!-- Step 1 - Left Side -->
+            <div class="relative group">
+              <!-- Timeline node -->
+              <div
+                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-20"
+              >
                 <div
-                  class="w-16 h-16 bg-secondary text-light rounded-full flex-center text-2xl font-800"
+                  class="w-16 h-16 bg-secondary text-light rounded-full flex-center text-2xl font-800 shadow-lg group-hover:scale-110 transition-all duration-300 border-4 border-white"
                 >
                   1
                 </div>
               </div>
-              <div class="flex-1">
-                <h3 class="text-2xl font-700 mb-2">Discovery & Strategie</h3>
-                <p class="text-primary font-600 mb-4">1-2 týdny</p>
-                <p class="text-gray-dark mb-4">
-                  Ponoříme se do vašeho tech businessu, analyzujeme konkurenci a definujeme
-                  positioning. Strategický workshop s klíčovými stakeholdery pro alignment vize.
-                </p>
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-                  <li class="flex items-center gap-2">
-                    <span class="text-secondary">✓</span>
-                    <span>Competitive landscape analýza</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-secondary">✓</span>
-                    <span>Brand positioning framework</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-secondary">✓</span>
-                    <span>Target audience personas</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-secondary">✓</span>
-                    <span>Messaging hierarchy</span>
-                  </li>
-                </ul>
+
+              <!-- Content - Left aligned -->
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="lg:text-right space-y-4">
+                  <div class="inline-block lg:block">
+                    <span
+                      class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-600 mb-4 inline-block"
+                    >
+                      Týden 1-2
+                    </span>
+                  </div>
+
+                  <h3
+                    class="text-2xl lg:text-3xl font-800 mb-3 group-hover:text-secondary transition-colors"
+                  >
+                    Discovery & Strategie
+                  </h3>
+
+                  <p class="text-gray-dark mb-6 leading-relaxed">
+                    Ponoříme se do vašeho tech businessu, analyzujeme konkurenci a definujeme
+                    positioning. Strategický workshop s klíčovými stakeholdery pro alignment vize.
+                  </p>
+
+                  <!-- Deliverables -->
+                  <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-secondary">
+                    <h4 class="font-700 text-dark mb-3 flex items-center gap-2">
+                      <span class="text-secondary">📋</span> Co získáte:
+                    </h4>
+                    <ul class="grid grid-cols-1 gap-2 text-sm">
+                      <li class="flex items-center gap-2">
+                        <span class="text-secondary text-xs">✓</span>
+                        <span>Competitive landscape analýza</span>
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <span class="text-secondary text-xs">✓</span>
+                        <span>Brand positioning framework</span>
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <span class="text-secondary text-xs">✓</span>
+                        <span>Target audience personas</span>
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <span class="text-secondary text-xs">✓</span>
+                        <span>Messaging hierarchy</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Visual/Icon Side -->
+                <div class="flex justify-center lg:justify-start">
+                  <div
+                    class="w-48 h-48 bg-gradient-to-br from-secondary/20 to-secondary/5 rounded-2xl flex-center transform group-hover:scale-105 transition-all duration-300 shadow-lg"
+                  >
+                    <div class="text-6xl">🎯</div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <!-- Step 2 -->
-            <div class="flex gap-8 items-start">
-              <div class="flex-shrink-0">
+            <!-- Step 2 - Right Side -->
+            <div class="relative group">
+              <!-- Timeline node -->
+              <div
+                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-20"
+              >
                 <div
-                  class="w-16 h-16 bg-secondary text-light rounded-full flex-center text-2xl font-800"
+                  class="w-16 h-16 bg-primary text-light rounded-full flex-center text-2xl font-800 shadow-lg group-hover:scale-110 transition-all duration-300 border-4 border-white"
                 >
                   2
                 </div>
               </div>
-              <div class="flex-1">
-                <h3 class="text-2xl font-700 mb-2">Kreativní koncept</h3>
-                <p class="text-primary font-600 mb-4">2-3 týdny</p>
-                <p class="text-gray-dark mb-4">
-                  Vytvoříme vizuální směr odpovídající vaší tech DNA. Prezentace 2-3 konceptů s
-                  rationale a aplikacemi na reálných touchpointech.
-                </p>
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-                  <li class="flex items-center gap-2">
-                    <span class="text-secondary">✓</span>
-                    <span>Logo koncepty (2-3 směry)</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-secondary">✓</span>
-                    <span>Barevná paleta a typografie</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-secondary">✓</span>
-                    <span>Visual mood board</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-secondary">✓</span>
-                    <span>Aplikace na business materials</span>
-                  </li>
-                </ul>
+
+              <!-- Content - Right aligned -->
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Visual/Icon Side -->
+                <div class="flex justify-center lg:justify-end order-2 lg:order-1">
+                  <div
+                    class="w-48 h-48 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex-center transform group-hover:scale-105 transition-all duration-300 shadow-lg"
+                  >
+                    <div class="text-6xl">🎨</div>
+                  </div>
+                </div>
+
+                <div class="space-y-4 order-1 lg:order-2">
+                  <div class="inline-block">
+                    <span
+                      class="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-600 mb-4 inline-block"
+                    >
+                      Týden 3-5
+                    </span>
+                  </div>
+
+                  <h3
+                    class="text-2xl lg:text-3xl font-800 mb-3 group-hover:text-primary transition-colors"
+                  >
+                    Kreativní koncept
+                  </h3>
+
+                  <p class="text-gray-dark mb-6 leading-relaxed">
+                    Vytvoříme vizuální směr odpovídající vaší tech DNA. Prezentace 2-3 konceptů s
+                    rationale a aplikacemi na reálných touchpointech.
+                  </p>
+
+                  <!-- Deliverables -->
+                  <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-primary">
+                    <h4 class="font-700 text-dark mb-3 flex items-center gap-2">
+                      <span class="text-primary">🎨</span> Co získáte:
+                    </h4>
+                    <ul class="grid grid-cols-1 gap-2 text-sm">
+                      <li class="flex items-center gap-2">
+                        <span class="text-primary text-xs">✓</span>
+                        <span>Logo koncepty (2-3 směry)</span>
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <span class="text-primary text-xs">✓</span>
+                        <span>Barevná paleta a typografie</span>
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <span class="text-primary text-xs">✓</span>
+                        <span>Visual mood board</span>
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <span class="text-primary text-xs">✓</span>
+                        <span>Aplikace na business materials</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <!-- Step 3 -->
-            <div class="flex gap-8 items-start">
-              <div class="flex-shrink-0">
+            <!-- Step 3 - Left Side -->
+            <div class="relative group">
+              <!-- Timeline node -->
+              <div
+                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-20"
+              >
                 <div
-                  class="w-16 h-16 bg-secondary text-light rounded-full flex-center text-2xl font-800"
+                  class="w-16 h-16 bg-secondary text-light rounded-full flex-center text-2xl font-800 shadow-lg group-hover:scale-110 transition-all duration-300 border-4 border-white"
                 >
                   3
                 </div>
               </div>
-              <div class="flex-1">
-                <h3 class="text-2xl font-700 mb-2">Design & Development</h3>
-                <p class="text-primary font-600 mb-4">4-8 týdnů</p>
-                <p class="text-gray-dark mb-4">
-                  Finalizujeme brand identity a stavíme tech-optimalizovaný web. Průběžné review
-                  sessions pro iterace a optimalizace podle feedbacku.
-                </p>
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-                  <li class="flex items-center gap-2">
-                    <span class="text-secondary">✓</span>
-                    <span>Finální logo a brand assets</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-secondary">✓</span>
-                    <span>Kompletní brand guidelines</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-secondary">✓</span>
-                    <span>Responzivní website</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-secondary">✓</span>
-                    <span>Marketing templates</span>
-                  </li>
-                </ul>
+
+              <!-- Content - Left aligned -->
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="lg:text-right space-y-4">
+                  <div class="inline-block lg:block">
+                    <span
+                      class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-600 mb-4 inline-block"
+                    >
+                      Týden 6-13
+                    </span>
+                  </div>
+
+                  <h3
+                    class="text-2xl lg:text-3xl font-800 mb-3 group-hover:text-secondary transition-colors"
+                  >
+                    Design & Development
+                  </h3>
+
+                  <p class="text-gray-dark mb-6 leading-relaxed">
+                    Finalizujeme brand identity a stavíme tech-optimalizovaný web. Průběžné review
+                    sessions pro iterace a optimalizace podle feedbacku.
+                  </p>
+
+                  <!-- Deliverables -->
+                  <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-secondary">
+                    <h4 class="font-700 text-dark mb-3 flex items-center gap-2">
+                      <span class="text-secondary">💻</span> Co získáte:
+                    </h4>
+                    <ul class="grid grid-cols-1 gap-2 text-sm">
+                      <li class="flex items-center gap-2">
+                        <span class="text-secondary text-xs">✓</span>
+                        <span>Finální logo a brand assets</span>
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <span class="text-secondary text-xs">✓</span>
+                        <span>Kompletní brand guidelines</span>
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <span class="text-secondary text-xs">✓</span>
+                        <span>Responzivní website</span>
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <span class="text-secondary text-xs">✓</span>
+                        <span>Marketing templates</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Visual/Icon Side -->
+                <div class="flex justify-center lg:justify-start">
+                  <div
+                    class="w-48 h-48 bg-gradient-to-br from-secondary/20 to-secondary/5 rounded-2xl flex-center transform group-hover:scale-105 transition-all duration-300 shadow-lg"
+                  >
+                    <div class="text-6xl">💻</div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <!-- Step 4 -->
-            <div class="flex gap-8 items-start">
-              <div class="flex-shrink-0">
+            <!-- Step 4 - Right Side -->
+            <div class="relative group">
+              <!-- Timeline node -->
+              <div
+                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-20"
+              >
                 <div
-                  class="w-16 h-16 bg-secondary text-light rounded-full flex-center text-2xl font-800"
+                  class="w-16 h-16 bg-primary text-light rounded-full flex-center text-2xl font-800 shadow-lg group-hover:scale-110 transition-all duration-300 border-4 border-white"
                 >
                   4
                 </div>
               </div>
-              <div class="flex-1">
-                <h3 class="text-2xl font-700 mb-2">Launch & Optimalizace</h3>
-                <p class="text-primary font-600 mb-4">2 týdny + ongoing</p>
-                <p class="text-gray-dark mb-4">
-                  Spouštíme novou brand identity, školíme váš tým a nastavujeme metriky úspěchu.
-                  Monitoring performance a případné optimalizace.
-                </p>
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-                  <li class="flex items-center gap-2">
-                    <span class="text-secondary">✓</span>
-                    <span>Brand launch strategie</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-secondary">✓</span>
-                    <span>Team training materials</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-secondary">✓</span>
-                    <span>Performance dashboards</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <span class="text-secondary">✓</span>
-                    <span>Post-launch optimalizace</span>
-                  </li>
-                </ul>
+
+              <!-- Content - Right aligned -->
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Visual/Icon Side -->
+                <div class="flex justify-center lg:justify-end order-2 lg:order-1">
+                  <div
+                    class="w-48 h-48 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex-center transform group-hover:scale-105 transition-all duration-300 shadow-lg"
+                  >
+                    <div class="text-6xl">🚀</div>
+                  </div>
+                </div>
+
+                <div class="space-y-4 order-1 lg:order-2">
+                  <div class="inline-block">
+                    <span
+                      class="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-600 mb-4 inline-block"
+                    >
+                      Týden 14-16 + ongoing
+                    </span>
+                  </div>
+
+                  <h3
+                    class="text-2xl lg:text-3xl font-800 mb-3 group-hover:text-primary transition-colors"
+                  >
+                    Launch & Optimalizace
+                  </h3>
+
+                  <p class="text-gray-dark mb-6 leading-relaxed">
+                    Spouštíme novou brand identity, školíme váš tým a nastavujeme metriky úspěchu.
+                    Monitoring performance a případné optimalizace.
+                  </p>
+
+                  <!-- Deliverables -->
+                  <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-primary">
+                    <h4 class="font-700 text-dark mb-3 flex items-center gap-2">
+                      <span class="text-primary">🚀</span> Co získáte:
+                    </h4>
+                    <ul class="grid grid-cols-1 gap-2 text-sm">
+                      <li class="flex items-center gap-2">
+                        <span class="text-primary text-xs">✓</span>
+                        <span>Brand launch strategie</span>
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <span class="text-primary text-xs">✓</span>
+                        <span>Team training materials</span>
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <span class="text-primary text-xs">✓</span>
+                        <span>Performance dashboards</span>
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <span class="text-primary text-xs">✓</span>
+                        <span>Post-launch optimalizace</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Process Guarantees -->
-          <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="text-center p-6 bg-white rounded-lg">
-              <div class="text-2xl mb-2">💰</div>
-              <h4 class="font-700 mb-2">Fixed price & timeline</h4>
-              <p class="text-sm text-gray-600">Žádné skryté náklady nebo nekonečné prodlužování</p>
+          <!-- Timeline Bottom -->
+          <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-8">
+            <div
+              class="w-4 h-4 bg-gradient-to-br from-secondary to-primary rounded-full shadow-lg"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Process Guarantees - vylepšený design -->
+        <div class="mt-24 pt-16 border-t border-gray-300">
+          <h3 class="text-2xl font-800 text-center mb-12">Naše záruky kvality</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div
+              class="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group border border-gray-200 hover:border-secondary"
+            >
+              <div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                💰
+              </div>
+              <h4 class="font-700 mb-3 group-hover:text-secondary transition-colors">
+                Fixed price & timeline
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Žádné skryté náklady nebo nekonečné prodlužování
+              </p>
             </div>
-            <div class="text-center p-6 bg-white rounded-lg">
-              <div class="text-2xl mb-2">🔄</div>
-              <h4 class="font-700 mb-2">Unlimited revisions</h4>
-              <p class="text-sm text-gray-600">V rámci scope dokud nebudete 100% spokojeni</p>
+            <div
+              class="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group border border-gray-200 hover:border-primary"
+            >
+              <div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                🔄
+              </div>
+              <h4 class="font-700 mb-3 group-hover:text-primary transition-colors">
+                Unlimited revisions
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                V rámci scope dokud nebudete 100% spokojeni
+              </p>
             </div>
-            <div class="text-center p-6 bg-white rounded-lg">
-              <div class="text-2xl mb-2">⚡</div>
-              <h4 class="font-700 mb-2">Tech expertise</h4>
-              <p class="text-sm text-gray-600">Rozumíme tech světu a mluvíme vaším jazykem</p>
+            <div
+              class="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group border border-gray-200 hover:border-secondary"
+            >
+              <div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                ⚡
+              </div>
+              <h4 class="font-700 mb-3 group-hover:text-secondary transition-colors">
+                Tech expertise
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Rozumíme tech světu a mluvíme vaším jazykem
+              </p>
             </div>
-            <div class="text-center p-6 bg-white rounded-lg">
-              <div class="text-2xl mb-2">🤝</div>
-              <h4 class="font-700 mb-2">Post-launch support</h4>
-              <p class="text-sm text-gray-600">Nezůstanete sami, pomůžeme s implementací</p>
+            <div
+              class="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group border border-gray-200 hover:border-primary"
+            >
+              <div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                🤝
+              </div>
+              <h4 class="font-700 mb-3 group-hover:text-primary transition-colors">
+                Post-launch support
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Nezůstanete sami, pomůžeme s implementací
+              </p>
             </div>
           </div>
         </div>
@@ -1266,5 +1476,44 @@ select:focus {
 
 .roi-metric:hover {
   transform: translateY(-2px);
+}
+
+/* Timeline animations */
+.timeline-progress {
+  animation: fillTimeline 3s ease-out forwards;
+}
+
+@keyframes fillTimeline {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+/* Intersection Observer trigger would control this in real implementation */
+.timeline-step-visible .timeline-progress {
+  height: 100%;
+}
+
+/* Hover effects for guarantees */
+.group:hover {
+  transform: translateY(-4px);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 1023px) {
+  .lg\\:text-right {
+    text-align: left !important;
+  }
+
+  .lg\\:justify-end {
+    justify-content: center !important;
+  }
+
+  .lg\\:justify-start {
+    justify-content: center !important;
+  }
 }
 </style>
