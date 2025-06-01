@@ -886,7 +886,6 @@
     </section>
 
     <!-- Process Section - Timeline Design -->
-    <!-- Process Section - Timeline Design -->
     <section class="section-padding bg-light relative overflow-hidden">
       <div class="container-custom relative z-10">
         <div class="text-center mb-16">
@@ -1283,29 +1282,561 @@
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="section-padding bg-dark text-light text-center">
+    <!-- FAQ Section -->
+    <section class="section-padding bg-light">
       <div class="container-custom">
-        <h2 class="heading-lg mb-6 text-light">
-          Připraveni investovat do brandingu, který se vyplatí?
-        </h2>
-        <p class="body-lg mb-12 max-w-3xl mx-auto text-gray-300">
-          Každý měsíc odkládání profesionálního brandingu vás stojí potenciální zákazníky, investory
-          a top talenty. Začněte ještě dnes.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <button class="btn-large bg-primary hover:bg-red-700" @click="$emit('openContactModal')">
-            Naplánovat strategickou konzultaci
-          </button>
-          <div class="flex flex-col sm:flex-row gap-4 text-gray-400">
-            <a href="#roi-calculator" class="text-secondary font-600 hover:underline"
-              >📊 Vypočítat ROI</a
-            >
-            <a href="/o-nas" class="text-secondary font-600 hover:underline">👥 Poznat náš tým</a>
-            <a href="mailto:ahoj@descodino.cz" class="text-secondary font-600 hover:underline"
-              >✉️ Napsat email</a
-            >
+        <div class="text-center mb-16">
+          <h2 class="heading-lg mb-4">Často kladené otázky</h2>
+          <p class="body-lg text-gray-dark max-w-3xl mx-auto">
+            Odpovědi na nejčastější dotazy ohledně našich brandingových balíčků a procesu spolupráce
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <div class="grid grid-cols-1 gap-6">
+            <!-- FAQ Item 1 -->
+            <div class="bg-white rounded-xl p-8 shadow-sm border-l-4 border-primary">
+              <h3 class="text-xl font-800 text-dark mb-4">
+                Proč jsou vaše ceny vyšší než u konkurence?
+              </h3>
+              <p class="text-gray-dark leading-relaxed mb-4">
+                Neceníme hodiny, ale <strong>hodnotu a výsledek</strong>. Naše ceny reflektují
+                komplexní value:
+              </p>
+              <ul class="space-y-3 text-gray-dark">
+                <li class="flex items-start gap-3">
+                  <span class="text-primary mt-1">•</span>
+                  <span><strong>Specializace na tech firmy</strong> - rozumíme vašemu světu</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-primary mt-1">•</span>
+                  <span><strong>Design + Code + Innovation</strong> - unikátní kombinace</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-primary mt-1">•</span>
+                  <span
+                    ><strong>Garantovaný ROI</strong> - investice 200k → 2-10 mil. Kč navýšení</span
+                  >
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-primary mt-1">•</span>
+                  <span><strong>Time-to-market</strong> - hotovo za 2-4 měsíce</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="bg-white rounded-xl p-8 shadow-sm border-l-4 border-secondary">
+              <h3 class="text-xl font-800 text-dark mb-4">
+                Jak dlouho trvá projekt a jaký je proces?
+              </h3>
+              <div class="grid grid-cols-3 gap-4 mb-6 text-sm">
+                <div class="text-center p-4 bg-secondary/5 rounded-lg">
+                  <div class="text-2xl font-800 text-secondary mb-2">2-3m</div>
+                  <div class="font-600 mb-1">Tech Essentials</div>
+                  <div class="text-gray-600">Pre-seed startupy</div>
+                </div>
+                <div class="text-center p-4 bg-primary/5 rounded-lg border-2 border-primary">
+                  <div class="text-2xl font-800 text-primary mb-2">3-4m</div>
+                  <div class="font-600 mb-1">Scale Ready</div>
+                  <div class="text-gray-600">Series A firmy</div>
+                </div>
+                <div class="text-center p-4 bg-secondary/5 rounded-lg">
+                  <div class="text-2xl font-800 text-secondary mb-2">4-6m</div>
+                  <div class="font-600 mb-1">Market Leader</div>
+                  <div class="text-gray-600">Series B+ enterprise</div>
+                </div>
+              </div>
+              <p class="text-gray-dark">
+                <strong>4 fáze:</strong> Discovery & Strategie → Kreativní koncept → Design &
+                Development → Launch & Optimalizace
+              </p>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="bg-white rounded-xl p-8 shadow-sm border-l-4 border-primary">
+              <h3 class="text-xl font-800 text-dark mb-4">Jaké garance poskytujete?</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h4 class="font-700 text-dark mb-3">Kvalita & Revize:</h4>
+                  <ul class="space-y-2 text-gray-dark">
+                    <li class="flex items-center gap-2">
+                      <span class="text-primary">✓</span>
+                      <span>Unlimited revize v rámci scope</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="text-primary">✓</span>
+                      <span>Fixed price & timeline</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="text-primary">✓</span>
+                      <span>30-60 dní post-launch podpora</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-700 text-dark mb-3">Výsledek:</h4>
+                  <ul class="space-y-2 text-gray-dark">
+                    <li class="flex items-center gap-2">
+                      <span class="text-secondary">✓</span>
+                      <span>Enterprise-ready image</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="text-secondary">✓</span>
+                      <span>Fundraising materiály</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="text-secondary">✓</span>
+                      <span>Scalable brand systém</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="bg-white rounded-xl p-8 shadow-sm border-l-4 border-secondary">
+              <h3 class="text-xl font-800 text-dark mb-4">
+                Můžu začít s menším balíčkem a později upgradovat?
+              </h3>
+              <p class="text-gray-dark leading-relaxed mb-4">
+                <strong>Absolutně ano!</strong> Naše balíčky jsou navržené pro růst. Většina klientů
+                začíná s Tech Essentials a postupně přechází na vyšší úrovně.
+              </p>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <p class="text-sm text-gray-600">
+                  <strong>Upgrade path:</strong> Tech Essentials → Scale Ready → Market Leader. Vždy
+                  se započítává už zaplacená částka z předchozího balíčku.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="bg-white rounded-xl p-8 shadow-sm border-l-4 border-primary">
+              <h3 class="text-xl font-800 text-dark mb-4">
+                Co když nejsme tech firma? Můžeme s vámi spolupracovat?
+              </h3>
+              <p class="text-gray-dark leading-relaxed mb-4">
+                Specializujeme se na tech firmy, ale spolupracujeme i s
+                <strong>ambiciózními značkami</strong> z jiných oborů, které sdílejí naši vizi
+                moderního brandingu a digitální excellence.
+              </p>
+              <p class="text-gray-dark leading-relaxed">
+                Pokud hledáte
+                <strong>strategický přístup, technologickou vyspělost a inovativní řešení</strong>,
+                budeme rádi, když si promluvíme o vašem projektu.
+              </p>
+            </div>
+
+            <!-- FAQ Item 6 -->
+            <div class="bg-white rounded-xl p-8 shadow-sm border-l-4 border-secondary">
+              <h3 class="text-xl font-800 text-dark mb-4">
+                Poskytujete nějakou formu podpory po dokončení projektu?
+              </h3>
+              <p class="text-gray-dark leading-relaxed mb-4">
+                <strong>Nezůstanete sami!</strong> Každý projekt zahrnuje post-launch podporu a
+                nabízíme několik způsobů pokračující spolupráce:
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="space-y-2">
+                  <h4 class="font-600 text-dark">Zahrnuté v ceně:</h4>
+                  <ul class="space-y-1 text-gray-600">
+                    <li>• 30-60 dní post-launch podpora</li>
+                    <li>• Brand guidelines a dokumentace</li>
+                    <li>• Training pro váš tým</li>
+                  </ul>
+                </div>
+                <div class="space-y-2">
+                  <h4 class="font-600 text-dark">Doplňkové služby:</h4>
+                  <ul class="space-y-1 text-gray-600">
+                    <li>• Brand maintenance (15-25k Kč/měsíc)</li>
+                    <li>• Strategic consulting (4.500 Kč/hod)</li>
+                    <li>• Campaign creative (2.500-3.500 Kč/hod)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
+    </section>
+    <tr>
+      <td class="p-8 text-center border-r border-gray-200">
+        <div class="flex flex-col items-center gap-3">
+          <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">✗</div>
+          <div class="text-sm text-gray-600">6-12 měsíců</div>
+        </div>
+      </td>
+      <td class="p-8 text-center">
+        <div class="flex flex-col items-center gap-3">
+          <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl">?</div>
+          <div class="text-sm text-gray-600">Rychlé, ale neúplné</div>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Row 5: Strategic Thinking -->
+    <tr class="border-t border-gray-200 hover:bg-gray-25 transition-colors duration-200">
+      <td class="p-8 font-600 text-dark border-r border-gray-200">
+        <div class="flex items-center gap-3">
+          <span class="text-xl">🧠</span>
+          <span>Strategické myšlení</span>
+        </div>
+      </td>
+      <td class="p-8 text-center bg-primary/5 border-l border-r border-primary/20">
+        <div class="flex flex-col items-center gap-3">
+          <div
+            class="w-12 h-12 bg-green-500 text-white rounded-full flex-center text-xl font-800 animate-pulse"
+          >
+            ✓
+          </div>
+          <div class="text-sm text-gray-600 font-600">Business focus</div>
+        </div>
+      </td>
+      <td class="p-8 text-center border-r border-gray-200">
+        <div class="flex flex-col items-center gap-3">
+          <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">✗</div>
+          <div class="text-sm text-gray-600">Pouze exekuce</div>
+        </div>
+      </td>
+      <td class="p-8 text-center border-r border-gray-200">
+        <div class="flex flex-col items-center gap-3">
+          <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl">?</div>
+          <div class="text-sm text-gray-600">Ano, ale generické</div>
+        </div>
+      </td>
+      <td class="p-8 text-center">
+        <div class="flex flex-col items-center gap-3">
+          <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl">?</div>
+          <div class="text-sm text-gray-600">Střední úroveň</div>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Row 6: Post-launch Support -->
+    <tr class="border-t border-gray-200 bg-gray-25 hover:bg-gray-50 transition-colors duration-200">
+      <td class="p-8 font-600 text-dark border-r border-gray-200">
+        <div class="flex items-center gap-3">
+          <span class="text-xl">🚀</span>
+          <span>Post-launch podpora</span>
+        </div>
+      </td>
+      <td class="p-8 text-center bg-primary/5 border-l border-r border-primary/20">
+        <div class="flex flex-col items-center gap-3">
+          <div
+            class="w-12 h-12 bg-green-500 text-white rounded-full flex-center text-xl font-800 animate-pulse"
+          >
+            ✓
+          </div>
+          <div class="text-sm text-gray-600 font-600">30-60 dní zdarma</div>
+        </div>
+      </td>
+      <td class="p-8 text-center border-r border-gray-200">
+        <div class="flex flex-col items-center gap-3">
+          <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">✗</div>
+          <div class="text-sm text-gray-600">Žádná nebo drahá</div>
+        </div>
+      </td>
+      <td class="p-8 text-center border-r border-gray-200">
+        <div class="flex flex-col items-center gap-3">
+          <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl">?</div>
+          <div class="text-sm text-gray-600">Ano, ale drahá</div>
+        </div>
+      </td>
+      <td class="p-8 text-center">
+        <div class="flex flex-col items-center gap-3">
+          <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl">?</div>
+          <div class="text-sm text-gray-600">Omezená</div>
+        </div>
+      </td>
+    </tr>
+
+    <!-- Interactive Key Differentiators -->
+    <div class="mt-20">
+      <h3 class="text-2xl font-800 text-center mb-12">Naše klíčové výhody</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Tech DNA Card -->
+        <div
+          class="group relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10 rounded-3xl p-8 border border-primary/20 hover:border-primary transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+        >
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"
+          ></div>
+          <div class="relative z-10">
+            <div
+              class="w-16 h-16 bg-primary/20 rounded-2xl flex-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300"
+            >
+              <span class="text-3xl">🎯</span>
+            </div>
+            <h3
+              class="text-xl font-800 mb-4 group-hover:text-primary transition-colors duration-300"
+            >
+              Tech DNA
+            </h3>
+            <p class="text-gray-dark leading-relaxed mb-4">
+              Nejen rozumíme tech světu, ale žijeme v něm. Víme, co tech firmy potřebují pro úspěch.
+            </p>
+            <div
+              class="text-sm text-primary font-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              Specializace na tech od roku 2020 →
+            </div>
+          </div>
+        </div>
+
+        <!-- All-in-One Card -->
+        <div
+          class="group relative overflow-hidden bg-gradient-to-br from-secondary/5 to-secondary/10 rounded-3xl p-8 border border-secondary/20 hover:border-secondary transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+        >
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"
+          ></div>
+          <div class="relative z-10">
+            <div
+              class="w-16 h-16 bg-secondary/20 rounded-2xl flex-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300"
+            >
+              <span class="text-3xl">⚡</span>
+            </div>
+            <h3
+              class="text-xl font-800 mb-4 group-hover:text-secondary transition-colors duration-300"
+            >
+              All-in-One
+            </h3>
+            <p class="text-gray-dark leading-relaxed mb-4">
+              Strategy + Design + Development + Marketing v jednom týmu. Žádná koordinace 5
+              dodavatelů.
+            </p>
+            <div
+              class="text-sm text-secondary font-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              Jeden tým, jeden cíl →
+            </div>
+          </div>
+        </div>
+
+        <!-- Guaranteed ROI Card -->
+        <div
+          class="group relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10 rounded-3xl p-8 border border-primary/20 hover:border-primary transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+        >
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"
+          ></div>
+          <div class="relative z-10">
+            <div
+              class="w-16 h-16 bg-primary/20 rounded-2xl flex-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300"
+            >
+              <span class="text-3xl">📈</span>
+            </div>
+            <h3
+              class="text-xl font-800 mb-4 group-hover:text-primary transition-colors duration-300"
+            >
+              Garantovaný ROI
+            </h3>
+            <p class="text-gray-dark leading-relaxed mb-4">
+              Nedělíme loga, ale investice s měřitelným dopadem na váš business a růst.
+            </p>
+            <div
+              class="text-sm text-primary font-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              Průměrně 3-6x návratnost →
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section - Redesigned with 4 Action Cards -->
+    <section class="section-padding bg-dark text-light relative overflow-hidden">
+      <!-- Red gradient sides -->
+      <div class="absolute inset-0">
+        <div
+          class="absolute left-0 top-0 bottom-0 w-1/4 bg-gradient-to-r from-primary to-transparent opacity-20"
+        ></div>
+        <div
+          class="absolute right-0 top-0 bottom-0 w-1/4 bg-gradient-to-l from-primary to-transparent opacity-20"
+        ></div>
+      </div>
+
+      <div class="container-custom relative z-10">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <h2 class="heading-lg mb-6 text-light">
+            Připraveni investovat do brandingu, který se vyplatí?
+          </h2>
+          <p class="body-lg mb-8 max-w-3xl mx-auto text-gray-300">
+            Každý měsíc odkládání profesionálního brandingu vás stojí potenciální zákazníky,
+            investory a top talenty.
+            <span class="text-secondary font-600">Začněte ještě dnes.</span>
+          </p>
+        </div>
+
+        <!-- Action Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <!-- Card 1: ROI Calculator -->
+          <div
+            class="cta-card group bg-gradient-to-br from-secondary/20 to-secondary/5 border border-secondary/30 hover:border-secondary transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 cursor-pointer"
+            @click="scrollToROI"
+          >
+            <div class="p-8 text-center space-y-4">
+              <!-- Icon with animation -->
+              <div class="relative mx-auto w-16 h-16 mb-6">
+                <div
+                  class="absolute inset-0 bg-secondary/20 rounded-full group-hover:scale-125 transition-transform duration-300"
+                ></div>
+                <div
+                  class="relative w-16 h-16 bg-secondary text-light rounded-full flex-center text-2xl font-800 group-hover:rotate-12 transition-transform duration-300"
+                >
+                  📊
+                </div>
+              </div>
+
+              <!-- Content -->
+              <h3
+                class="text-xl font-800 text-light group-hover:text-secondary transition-colors duration-300"
+              >
+                Vypočítat ROI
+              </h3>
+              <p class="text-sm text-gray-300 leading-relaxed">
+                Zjistěte potenciální návratnost investice do brandingu pro vaši firmu
+              </p>
+
+              <!-- Call to action -->
+              <div class="pt-4">
+                <span class="text-secondary font-600 text-sm group-hover:underline">
+                  Spočítat výsledky →
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Free Consultation - Primary CTA -->
+          <div
+            class="cta-card group bg-gradient-to-br from-primary/30 to-primary/10 border-2 border-primary transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 cursor-pointer relative"
+            @click="$emit('openContactModal')"
+          >
+            <!-- "Nejpopulárnější" badge - better positioned -->
+            <div class="absolute top-4 right-4">
+              <span class="bg-primary text-light px-3 py-1 rounded-full text-xs font-600 shadow-lg">
+                Nejčastější
+              </span>
+            </div>
+
+            <div class="p-8 text-center space-y-4">
+              <!-- Icon with animation -->
+              <div class="relative mx-auto w-16 h-16 mb-6">
+                <div
+                  class="absolute inset-0 bg-primary/20 rounded-full group-hover:scale-125 transition-transform duration-300"
+                ></div>
+                <div
+                  class="relative w-16 h-16 bg-primary text-light rounded-full flex-center text-2xl font-800 group-hover:rotate-12 transition-transform duration-300"
+                >
+                  📞
+                </div>
+              </div>
+
+              <!-- Content -->
+              <h3
+                class="text-xl font-800 text-light group-hover:text-primary transition-colors duration-300"
+              >
+                Konzultace zdarma
+              </h3>
+              <p class="text-sm text-gray-300 leading-relaxed">
+                30min strategický hovor o vašich brandingových potřebách a možnostech
+              </p>
+
+              <!-- Call to action -->
+              <div class="pt-4">
+                <span class="text-primary font-600 text-sm group-hover:underline">
+                  Naplánovat schůzku →
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Team Introduction -->
+          <div
+            class="cta-card group bg-gradient-to-br from-gray-700/50 to-gray-800/30 border border-gray-600 hover:border-gray-400 transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 cursor-pointer"
+          >
+            <a href="/o-nas" class="block">
+              <div class="p-8 text-center space-y-4">
+                <!-- Icon with animation -->
+                <div class="relative mx-auto w-16 h-16 mb-6">
+                  <div
+                    class="absolute inset-0 bg-gray-500/20 rounded-full group-hover:scale-125 transition-transform duration-300"
+                  ></div>
+                  <div
+                    class="relative w-16 h-16 bg-gray-600 text-light rounded-full flex-center text-2xl font-800 group-hover:rotate-12 transition-transform duration-300"
+                  >
+                    👥
+                  </div>
+                </div>
+
+                <!-- Content -->
+                <h3
+                  class="text-xl font-800 text-light group-hover:text-gray-300 transition-colors duration-300"
+                >
+                  Poznat náš tým
+                </h3>
+                <p class="text-sm text-gray-300 leading-relaxed">
+                  Zjistěte více o lidech za Descodino a našich zkušenostech s tech firmami
+                </p>
+
+                <!-- Call to action -->
+                <div class="pt-4">
+                  <span class="text-gray-300 font-600 text-sm group-hover:underline">
+                    O našem týmu →
+                  </span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Card 4: Email Contact -->
+          <div
+            class="cta-card group bg-gradient-to-br from-gray-700/50 to-gray-800/30 border border-gray-600 hover:border-gray-400 transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 cursor-pointer"
+          >
+            <a href="mailto:ahoj@descodino.cz" class="block">
+              <div class="p-8 text-center space-y-4">
+                <!-- Icon with animation -->
+                <div class="relative mx-auto w-16 h-16 mb-6">
+                  <div
+                    class="absolute inset-0 bg-gray-500/20 rounded-full group-hover:scale-125 transition-transform duration-300"
+                  ></div>
+                  <div
+                    class="relative w-16 h-16 bg-gray-600 text-light rounded-full flex-center text-2xl font-800 group-hover:rotate-12 transition-transform duration-300"
+                  >
+                    ✉️
+                  </div>
+                </div>
+
+                <!-- Content -->
+                <h3
+                  class="text-xl font-800 text-light group-hover:text-gray-300 transition-colors duration-300"
+                >
+                  Napsat email
+                </h3>
+                <p class="text-sm text-gray-300 leading-relaxed">
+                  Preferujete písemnou komunikaci? Napište nám přímo na email
+                </p>
+
+                <!-- Call to action -->
+                <div class="pt-4">
+                  <span class="text-gray-300 font-600 text-sm group-hover:underline">
+                    ahoj@descodino.cz →
+                  </span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Optional: Additional info below -->
+        <div class="text-center mt-12 pt-8 border-t border-gray-700">
+          <p class="text-gray-400 text-sm">
+            Průměrná doba odezvy: <span class="text-secondary font-600">2 hodiny</span> • Všechny
+            konzultace: <span class="text-secondary font-600">bez závazků</span> • NDA:
+            <span class="text-secondary font-600">samozřejmost</span>
+          </p>
         </div>
       </div>
     </section>
@@ -1320,7 +1851,12 @@ defineEmits<{
   openContactModal: []
 }>()
 
-// Timeline Animation State
+// FAQ Accordion State
+const openFaq = ref<number | null>(null)
+
+const toggleFaq = (index: number) => {
+  openFaq.value = openFaq.value === index ? null : index
+}
 const timelineProgress = ref(0)
 const visibleSteps = ref<Set<number>>(new Set())
 const timelineRef = ref<HTMLElement>()
@@ -1445,6 +1981,14 @@ const formatNumber = (num: number): string => {
   return new Intl.NumberFormat('cs-CZ').format(num)
 }
 
+// ScrollToROI function for CTA card
+const scrollToROI = () => {
+  const roiSection = document.getElementById('roi-calculator')
+  if (roiSection) {
+    roiSection.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+
 // Timeline Animation Setup
 const setupTimelineAnimation = () => {
   if (!timelineRef.value) return
@@ -1520,7 +2064,62 @@ onUnmounted(() => {
   scroll-margin-top: 100px;
 }
 
-/* Timeline Animations */
+/* FAQ Accordion Animations */
+.faq-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Comparison Table Enhancements */
+.comparison-card {
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.comparison-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Interactive elements pulse */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Hover effects for key differentiators */
+.group:hover .absolute {
+  transform: scale(1.5) rotate(45deg);
+}
 .timeline-track {
   will-change: transform;
 }
@@ -1550,50 +2149,118 @@ onUnmounted(() => {
   transform: scale(1);
 }
 
-/* Content slide animations */
-.timeline-step .lg\\:text-right > * {
+/* Content slide animations - OPRAVENÉ SELEKTORY */
+.timeline-step .lg\:text-right > *,
+.timeline-step .space-y-4 > * {
   transform: translateX(-50px);
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.timeline-step:nth-child(even) .order-1 > * {
+/* Pro pravé strany (step 2 a 4) - nový univerzální selektor */
+.timeline-step .order-1 > *,
+.timeline-step .order-2 > * {
   transform: translateX(50px);
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.step-visible .lg\\:text-right > *,
-.step-visible .order-1 > * {
+/* Když je step viditelný */
+.step-visible .lg\:text-right > *,
+.step-visible .space-y-4 > *,
+.step-visible .order-1 > *,
+.step-visible .order-2 > * {
   transform: translateX(0);
   opacity: 1;
 }
 
-/* Staggered animation delays */
-.step-visible .lg\\:text-right > *:nth-child(1) {
+/* Staggered animation delays pro levé strany */
+.step-visible .lg\:text-right > *:nth-child(1),
+.step-visible .space-y-4 > *:nth-child(1) {
   transition-delay: 0.1s;
 }
-.step-visible .lg\\:text-right > *:nth-child(2) {
+.step-visible .lg\:text-right > *:nth-child(2),
+.step-visible .space-y-4 > *:nth-child(2) {
   transition-delay: 0.2s;
 }
-.step-visible .lg\\:text-right > *:nth-child(3) {
+.step-visible .lg\:text-right > *:nth-child(3),
+.step-visible .space-y-4 > *:nth-child(3) {
   transition-delay: 0.3s;
 }
-.step-visible .lg\\:text-right > *:nth-child(4) {
+.step-visible .lg\:text-right > *:nth-child(4),
+.step-visible .space-y-4 > *:nth-child(4) {
   transition-delay: 0.4s;
 }
 
-.step-visible .order-1 > *:nth-child(1) {
+/* Staggered animation delays pro pravé strany */
+.step-visible .order-1 > *:nth-child(1),
+.step-visible .order-2 > *:nth-child(1) {
   transition-delay: 0.1s;
 }
-.step-visible .order-1 > *:nth-child(2) {
+.step-visible .order-1 > *:nth-child(2),
+.step-visible .order-2 > *:nth-child(2) {
   transition-delay: 0.2s;
 }
-.step-visible .order-1 > *:nth-child(3) {
+.step-visible .order-1 > *:nth-child(3),
+.step-visible .order-2 > *:nth-child(3) {
   transition-delay: 0.3s;
 }
-.step-visible .order-1 > *:nth-child(4) {
+.step-visible .order-1 > *:nth-child(4),
+.step-visible .order-2 > *:nth-child(4) {
   transition-delay: 0.4s;
+}
+
+/* Ostatní styly zůstávají stejné */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #96b623;
+  cursor: pointer;
+  border: 2px solid #000;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #96b623;
+  cursor: pointer;
+  border: 2px solid #000;
+}
+
+input:focus,
+select:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(150, 182, 35, 0.15);
+}
+
+.roi-metric {
+  transition: all 0.3s ease;
+}
+
+.roi-metric:hover {
+  transform: translateY(-2px);
+}
+
+.group:hover {
+  transform: translateY(-4px);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 1023px) {
+  .lg\:text-right {
+    text-align: left !important;
+  }
+
+  .lg\:justify-end {
+    justify-content: center !important;
+  }
+
+  .lg\:justify-start {
+    justify-content: center !important;
+  }
 }
 
 /* Custom slider styling */
@@ -1649,6 +2316,53 @@ select:focus {
 
   .lg\\:justify-start {
     justify-content: center !important;
+  }
+}
+
+.cta-card {
+  border-radius: 1.5rem;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s;
+}
+
+.cta-card:hover::before {
+  left: 100%;
+}
+
+/* Staggered animations */
+.cta-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.cta-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.cta-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.cta-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .cta-card {
+    transform: none !important;
+  }
+
+  .cta-card:hover {
+    transform: translateY(-4px) !important;
   }
 }
 </style>
