@@ -572,6 +572,8 @@
                   </div>
                 </div>
 
+
+
                 <!-- Prognóza na základě balíčku -->
                 <div class="border-t border-gray-700 pt-6 space-y-4">
                   <h4 class="text-sm font-600 text-gray-300 flex items-center gap-2">
@@ -663,6 +665,8 @@
                     </div>
                   </div>
                 </div>
+
+                
 
                 <!-- Quick insights -->
                 <div class="bg-gray-800/50 p-4 rounded-lg border border-gray-700">
@@ -863,6 +867,358 @@
                     </div>
                   </div>
                 </details>
+
+                                <!-- Hlavní CTA tlačítko - přidat do ROI Results sekce -->
+                <div v-if="results.roi > 0" class="mt-6">
+                  <button
+                    @click="openServiceRequest"
+                    class="w-full bg-gradient-to-r from-primary to-red-700 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-red-700 hover:to-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
+                  >
+                    <span class="text-2xl">🚀</span>
+                    CHCI TUTO SLUŽBU
+                    <span class="text-sm bg-white/20 px-2 py-1 rounded">{{ calculator.selectedPackage.replace('-', ' ').toUpperCase() }}</span>
+                  </button>
+                  <p class="text-center text-xs text-gray-400 mt-2">
+                    Formulář se předvyplní vašimi daty z kalkulačky
+                  </p>
+                </div>
+
+                 <!-- Modal pro objednávku služby - FINAL FIXES -->
+                <div 
+                  v-if="showServiceModal" 
+                  class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] overflow-hidden"
+                  @click.self="closeServiceModal"
+                >
+                  <div class="h-full flex items-start justify-center p-4 pt-8 pb-8">
+                    <div class="bg-white rounded-2xl w-full max-w-5xl shadow-2xl flex flex-col" style="max-height: calc(100vh - 4rem);">
+                      <!-- Modal Header - FIXED -->
+                      <div class="bg-gradient-to-r from-primary to-red-700 text-white p-6 rounded-t-2xl flex-shrink-0">
+                        <div class="flex justify-between items-start">
+                          <div class="flex-1">
+                            <h3 class="text-2xl lg:text-3xl font-black mb-2 flex items-center gap-3">
+                              <span class="text-2xl lg:text-3xl">🚀</span>
+                              Objednávka brandingové služby
+                            </h3>
+                            <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-red-100">
+                              <span class="text-lg font-semibold">
+                                {{ getPackageTitle(calculator.selectedPackage) }}
+                              </span>
+                              <span class="bg-white/20 px-4 py-2 rounded-full text-lg font-bold w-fit">
+                                {{ formatCurrency(calculator.investment) }}
+                              </span>
+                            </div>
+                          </div>
+                          <!-- Better close button -->
+                          <button 
+                            @click="closeServiceModal"
+                            class="bg-white/10 hover:bg-white/20 rounded-xl p-3 transition-all duration-200 hover:scale-110 ml-4 flex-shrink-0"
+                            title="Zavřít"
+                          >
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Modal Content - SCROLLABLE ONLY HERE -->
+                      <div class="flex-1 overflow-y-auto">
+                        <div class="p-6 lg:p-8 space-y-6 lg:space-y-8">
+                          <!-- Kalkulačka výsledky - FIXED VISIBILITY -->
+                          <div class="bg-gradient-to-br from-green-50 to-blue-50 border-2 border-green-200 p-6 rounded-2xl">
+                            <h4 class="font-black text-xl lg:text-2xl mb-4 flex items-center gap-3 text-gray-800">
+                              <span class="text-2xl">📊</span>
+                              Vaše kalkulace ROI
+                            </h4>
+                            
+                            <!-- Key Metrics - Horizontal on desktop, vertical on mobile -->
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                              <div class="bg-primary/10 p-4 rounded-xl text-center border border-primary/20">
+                                <div class="text-xl lg:text-2xl font-black text-primary mb-1">
+                                  +{{ formatCurrency(results.incrementalProfit) }}
+                                </div>
+                                <div class="text-xs lg:text-sm text-primary font-semibold">měsíčně navíc</div>
+                              </div>
+                              <div class="bg-green-100 p-4 rounded-xl text-center border border-green-300">
+                                <div class="text-xl lg:text-2xl font-black text-green-700 mb-1">
+                                  {{ (results.roi * 100).toFixed(0) }}%
+                                </div>
+                                <div class="text-xs lg:text-sm text-green-700 font-semibold">ROI za {{ calculator.horizon }}m</div>
+                              </div>
+                              <div class="bg-blue-100 p-4 rounded-xl text-center border border-blue-300">
+                                <div class="text-xl lg:text-2xl font-black text-blue-700 mb-1">
+                                  {{ results.paybackPeriod === Infinity ? '∞' : Math.round(results.paybackPeriod) }}{{ results.paybackPeriod !== Infinity ? 'm' : '' }}
+                                </div>
+                                <div class="text-xs lg:text-sm text-blue-700 font-semibold">doba návratnosti</div>
+                              </div>
+                            </div>
+
+                            <!-- Detailed breakdown - FIXED COLORS -->
+                            <details class="group">
+                              <summary class="cursor-pointer text-primary font-semibold hover:text-red-700 transition-colors list-none flex items-center gap-2">
+                                <svg class="w-4 h-4 transform group-open:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                                Zobrazit detailní rozpis kalkulace
+                              </summary>
+                              <div class="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
+                                <!-- Current State - DARK TEXT -->
+                                <div class="bg-white p-4 rounded-xl border border-gray-300">
+                                  <h5 class="font-bold mb-3 text-gray-800 flex items-center gap-2 text-sm">
+                                    <span class="w-2 h-2 bg-gray-500 rounded-full"></span>
+                                    Současný stav
+                                  </h5>
+                                  <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                      <span class="text-gray-700">Návštěvnost:</span>
+                                      <span class="font-semibold text-gray-900">{{ formatNumber(calculator.baselineTraffic) }}</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                      <span class="text-gray-700">Konverze:</span>
+                                      <span class="font-semibold text-gray-900">{{ calculator.baselineConversion }}%</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                      <span class="text-gray-700">AOV:</span>
+                                      <span class="font-semibold text-gray-900">{{ formatCurrency(calculator.averageOrder) }}</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                      <span class="text-gray-700">Marže:</span>
+                                      <span class="font-semibold text-gray-900">{{ calculator.profitMargin }}%</span>
+                                    </div>
+                                    <div class="flex justify-between pt-2 border-t border-gray-300">
+                                      <span class="text-gray-700">Měsíční zisk:</span>
+                                      <span class="font-bold text-gray-900">{{ formatCurrency(results.baselineProfit) }}</span>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <!-- Projected State - DARK TEXT -->
+                                <div class="bg-green-50 p-4 rounded-xl border border-green-400">
+                                  <h5 class="font-bold mb-3 text-green-900 flex items-center gap-2 text-sm">
+                                    <span class="w-2 h-2 bg-green-600 rounded-full"></span>
+                                    Po rebrandingu
+                                  </h5>
+                                  <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                      <span class="text-green-800">Návštěvnost:</span>
+                                      <span class="font-semibold text-green-900">{{ formatNumber(projectedMetrics.newTraffic) }}</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                      <span class="text-green-800">Konverze:</span>
+                                      <span class="font-semibold text-green-900">{{ projectedMetrics.newConversion.toFixed(1) }}%</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                      <span class="text-green-800">Nárůst návštěv:</span>
+                                      <span class="font-semibold text-green-900">+{{ projectedMetrics.trafficIncrease }}%</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                      <span class="text-green-800">Nárůst konverze:</span>
+                                      <span class="font-semibold text-green-900">+{{ projectedMetrics.conversionIncrease }}%</span>
+                                    </div>
+                                    <div class="flex justify-between pt-2 border-t border-green-400">
+                                      <span class="text-green-800">Nový měsíční zisk:</span>
+                                      <span class="font-bold text-green-900">{{ formatCurrency(results.projectedProfit) }}</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </details>
+                          </div>
+
+                          <!-- Kontaktní informace - FORM -->
+                          <form @submit.prevent="submitServiceRequest" class="space-y-4 lg:space-y-6">
+                            <h4 class="font-black text-xl lg:text-2xl flex items-center gap-3 text-gray-800">
+                              <span class="text-2xl">👤</span>
+                              Vaše kontaktní údaje
+                            </h4>
+                            
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+                              <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">
+                                  Jméno a příjmení *
+                                </label>
+                                <input
+                                  v-model="serviceForm.name"
+                                  type="text"
+                                  required
+                                  class="w-full p-3 lg:p-4 border-2 border-gray-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 outline-none transition-all"
+                                  placeholder="Jan Novák"
+                                />
+                              </div>
+                              
+                              <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">
+                                  E-mail *
+                                </label>
+                                <input
+                                  v-model="serviceForm.email"
+                                  type="email"
+                                  required
+                                  class="w-full p-3 lg:p-4 border-2 border-gray-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 outline-none transition-all"
+                                  placeholder="jan@firma.cz"
+                                />
+                              </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+                              <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">
+                                  Telefon *
+                                </label>
+                                <input
+                                  v-model="serviceForm.phone"
+                                  type="tel"
+                                  required
+                                  class="w-full p-3 lg:p-4 border-2 border-gray-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 outline-none transition-all"
+                                  placeholder="+420 123 456 789"
+                                />
+                              </div>
+                              
+                              <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">
+                                  Název firmy *
+                                </label>
+                                <input
+                                  v-model="serviceForm.company"
+                                  type="text"
+                                  required
+                                  class="w-full p-3 lg:p-4 border-2 border-gray-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 outline-none transition-all"
+                                  placeholder="Název vaší firmy"
+                                />
+                              </div>
+                            </div>
+
+                            <!-- Business Details Grid -->
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+                              <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">
+                                  Pozice ve firmě
+                                </label>
+                                <select
+                                  v-model="serviceForm.position"
+                                  class="w-full p-3 lg:p-4 border-2 border-gray-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 outline-none transition-all bg-white"
+                                >
+                                  <option value="">Vyberte pozici</option>
+                                  <option value="ceo">CEO/Founder</option>
+                                  <option value="cmo">CMO/Marketing Director</option>
+                                  <option value="cto">CTO/Tech Director</option>
+                                  <option value="marketing">Marketing Manager</option>
+                                  <option value="business">Business Development</option>
+                                  <option value="other">Jiná pozice</option>
+                                </select>
+                              </div>
+
+                              <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">
+                                  Velikost firmy
+                                </label>
+                                <select
+                                  v-model="serviceForm.companySize"
+                                  class="w-full p-3 lg:p-4 border-2 border-gray-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 outline-none transition-all bg-white"
+                                >
+                                  <option value="">Počet zaměstnanců</option>
+                                  <option value="1-10">1-10 lidí</option>
+                                  <option value="11-30">11-30 lidí</option>
+                                  <option value="31-80">31-80 lidí</option>
+                                  <option value="81-200">81-200 lidí</option>
+                                  <option value="200+">200+ lidí</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+                              <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">
+                                  Fáze růstu firmy
+                                </label>
+                                <select
+                                  v-model="serviceForm.growthStage"
+                                  class="w-full p-3 lg:p-4 border-2 border-gray-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 outline-none transition-all bg-white"
+                                >
+                                  <option value="">Vyberte fázi</option>
+                                  <option value="pre-seed">Pre-seed/Idea</option>
+                                  <option value="seed">Seed</option>
+                                  <option value="series-a">Series A</option>
+                                  <option value="series-b">Series B+</option>
+                                  <option value="profitable">Profitable/Established</option>
+                                </select>
+                              </div>
+
+                              <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">
+                                  Časový rámec
+                                </label>
+                                <select
+                                  v-model="serviceForm.timeline"
+                                  class="w-full p-3 lg:p-4 border-2 border-gray-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 outline-none transition-all bg-white"
+                                >
+                                  <option value="">Kdy chcete začít?</option>
+                                  <option value="asap">Co nejdříve</option>
+                                  <option value="1-month">Do 1 měsíce</option>
+                                  <option value="2-3-months">Za 2-3 měsíce</option>
+                                  <option value="later">Později v roce</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div>
+                              <label class="block text-sm font-bold text-gray-700 mb-2">
+                                Další informace o projektu
+                              </label>
+                              <textarea
+                                v-model="serviceForm.message"
+                                rows="3"
+                                class="w-full p-3 lg:p-4 border-2 border-gray-200 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 outline-none transition-all resize-none"
+                                placeholder="Popište vaše specifické potřeby, cíle nebo otázky k projektu..."
+                              ></textarea>
+                            </div>
+
+                            <!-- GDPR souhlas -->
+                            <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                              <div class="flex items-start gap-3">
+                                <input
+                                  v-model="serviceForm.gdprConsent"
+                                  type="checkbox"
+                                  required
+                                  class="mt-1 w-4 h-4 text-primary border-2 border-gray-300 rounded focus:ring-primary focus:ring-2 flex-shrink-0"
+                                />
+                                <label class="text-sm text-gray-700 leading-relaxed">
+                                  <strong>Souhlasím se zpracováním osobních údajů</strong> za účelem kontaktování a zpracování poptávky. 
+                                  <a href="/gdpr" target="_blank" class="text-primary hover:underline font-semibold">Více o zpracování údajů</a>
+                                </label>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+
+                      <!-- Submit buttons - STICKY FOOTER -->
+                      <div class="bg-gray-50 p-4 lg:p-6 border-t border-gray-200 rounded-b-2xl flex-shrink-0">
+                        <div class="flex gap-3 lg:gap-4">
+                          <button
+                            type="button"
+                            @click="closeServiceModal"
+                            class="flex-1 px-4 lg:px-6 py-3 lg:py-4 border-2 border-gray-300 text-gray-700 rounded-xl hover:bg-gray-100 transition-colors font-semibold"
+                          >
+                            Zrušit
+                          </button>
+                          <button
+                            @click="submitServiceRequest"
+                            :disabled="isSubmitting || !serviceForm.gdprConsent"
+                            class="flex-[2] bg-gradient-to-r from-primary to-red-700 text-white px-4 lg:px-8 py-3 lg:py-4 rounded-xl hover:from-red-700 hover:to-primary transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 lg:gap-3 font-bold shadow-lg hover:shadow-xl"
+                          >
+                            <span v-if="isSubmitting" class="animate-spin text-xl lg:text-2xl">⏳</span>
+                            <span v-else class="text-xl lg:text-2xl">🚀</span>
+                            <span class="text-sm lg:text-lg">{{ isSubmitting ? 'Odesílám...' : 'Odeslat poptávku' }}</span>
+                          </button>
+                        </div>
+                        <p class="text-center text-xs lg:text-sm text-gray-500 mt-2 lg:mt-3">
+                          Odpovíme do 24 hodin • Bez závazků
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
                 <!-- Disclaimer -->
                 <div class="bg-orange-900/20 border border-orange-600/30 p-4 rounded-lg">
@@ -1274,182 +1630,280 @@
       </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="section-padding bg-light">
-      <div class="container-custom">
+   <!-- FAQ Section - MODERNIZED -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+      <div class="max-w-4xl mx-auto px-6">
+        <!-- Header -->
         <div class="text-center mb-16">
-          <h2 class="heading-lg mb-4">Často kladené otázky</h2>
-          <p class="body-lg text-gray-dark max-w-3xl mx-auto">
-            Odpovědi na nejčastější dotazy ohledně našich brandingových balíčků a procesu spolupráce
+          <div class="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <span class="text-2xl">⚡</span>
+            Často kladené otázky
+          </div>
+          <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">
+            Vše, co potřebujete vědět o <span class="text-primary">Descodinu</span>
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Odpovědi na nejčastější dotazy o našem přístupu k brandingu, procesu spolupráce a filosofii 
+            <strong className="text-gray-800"> Design + Code + Innovation</strong>
           </p>
         </div>
 
-        <div class="max-w-4xl mx-auto">
-          <div class="grid grid-cols-1 gap-6">
-            <!-- FAQ Item 1 -->
-            <div class="bg-white rounded-xl p-8 shadow-sm border-l-4 border-primary">
-              <h3 class="text-xl font-800 text-dark mb-4">
-                Proč jsou vaše ceny vyšší než u konkurence?
-              </h3>
-              <p class="text-gray-dark leading-relaxed mb-4">
-                Neceníme hodiny, ale <strong>hodnotu a výsledek</strong>. Naše ceny reflektují
-                komplexní value:
-              </p>
-              <ul class="space-y-3 text-gray-dark">
-                <li class="flex items-start gap-3">
-                  <span class="text-primary mt-1">•</span>
-                  <span><strong>Specializace na tech firmy</strong> - rozumíme vašemu světu</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="text-primary mt-1">•</span>
-                  <span><strong>Design + Code + Innovation</strong> - unikátní kombinace</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="text-primary mt-1">•</span>
-                  <span
-                    ><strong>Garantovaný ROI</strong> - investice 200k → 2-10 mil. Kč navýšení</span
-                  >
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="text-primary mt-1">•</span>
-                  <span><strong>Time-to-market</strong> - hotovo za 2-4 měsíce</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- FAQ Item 2 -->
-            <div class="bg-white rounded-xl p-8 shadow-sm border-l-4 border-secondary">
-              <h3 class="text-xl font-800 text-dark mb-4">
-                Jak dlouho trvá projekt a jaký je proces?
-              </h3>
-              <div class="grid grid-cols-3 gap-4 mb-6 text-sm">
-                <div class="text-center p-4 bg-secondary/5 rounded-lg">
-                  <div class="text-2xl font-800 text-secondary mb-2">2-3m</div>
-                  <div class="font-600 mb-1">Tech Essentials</div>
-                  <div class="text-gray-600">Pre-seed startupy</div>
-                </div>
-                <div class="text-center p-4 bg-primary/5 rounded-lg border-2 border-primary">
-                  <div class="text-2xl font-800 text-primary mb-2">3-4m</div>
-                  <div class="font-600 mb-1">Scale Ready</div>
-                  <div class="text-gray-600">Series A firmy</div>
-                </div>
-                <div class="text-center p-4 bg-secondary/5 rounded-lg">
-                  <div class="text-2xl font-800 text-secondary mb-2">4-6m</div>
-                  <div class="font-600 mb-1">Market Leader</div>
-                  <div class="text-gray-600">Series B+ enterprise</div>
+        <!-- FAQ Items -->
+        <div class="space-y-4">
+          <!-- FAQ Item 1 -->
+          <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-gray-300">
+            <button
+              @click="toggleFaq(0)"
+              class="w-full p-8 text-left flex items-start gap-4 transition-all duration-200 hover:bg-gray-50"
+            >
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
+                  <span class="text-xl">🎯</span>
                 </div>
               </div>
-              <p class="text-gray-dark">
-                <strong>4 fáze:</strong> Discovery & Strategie → Kreativní koncept → Design &
-                Development → Launch & Optimalizace
-              </p>
-            </div>
-
-            <!-- FAQ Item 3 -->
-            <div class="bg-white rounded-xl p-8 shadow-sm border-l-4 border-primary">
-              <h3 class="text-xl font-800 text-dark mb-4">Jaké garance poskytujete?</h3>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <h4 class="font-700 text-dark mb-3">Kvalita & Revize:</h4>
-                  <ul class="space-y-2 text-gray-dark">
-                    <li class="flex items-center gap-2">
-                      <span class="text-primary">✓</span>
-                      <span>Unlimited revize v rámci scope</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                      <span class="text-primary">✓</span>
-                      <span>Fixed price & timeline</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                      <span class="text-primary">✓</span>
-                      <span>30-60 dní post-launch podpora</span>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 class="font-700 text-dark mb-3">Výsledek:</h4>
-                  <ul class="space-y-2 text-gray-dark">
-                    <li class="flex items-center gap-2">
-                      <span class="text-secondary">✓</span>
-                      <span>Enterprise-ready image</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                      <span class="text-secondary">✓</span>
-                      <span>Fundraising materiály</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                      <span class="text-secondary">✓</span>
-                      <span>Scalable brand systém</span>
-                    </li>
-                  </ul>
+              <div class="flex-grow">
+                <h3 class="text-xl font-bold text-gray-900 mb-2 pr-8">
+                  Proč je Descodino jiné než ostatní designová studia?
+                </h3>
+                <div class="inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                  <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  Design + Code + Innovation = Unikátní přístup
                 </div>
               </div>
-            </div>
-
-            <!-- FAQ Item 4 -->
-            <div class="bg-white rounded-xl p-8 shadow-sm border-l-4 border-secondary">
-              <h3 class="text-xl font-800 text-dark mb-4">
-                Můžu začít s menším balíčkem a později upgradovat?
-              </h3>
-              <p class="text-gray-dark leading-relaxed mb-4">
-                <strong>Absolutně ano!</strong> Naše balíčky jsou navržené pro růst. Většina klientů
-                začíná s Tech Essentials a postupně přechází na vyšší úrovně.
-              </p>
-              <div class="bg-gray-50 p-4 rounded-lg">
-                <p class="text-sm text-gray-600">
-                  <strong>Upgrade path:</strong> Tech Essentials → Scale Ready → Market Leader. Vždy
-                  se započítává už zaplacená částka z předchozího balíčku.
+              <div class="flex-shrink-0 ml-4">
+                <svg 
+                  :class="openFaq === 0 ? 'rotate-90' : ''"
+                  class="w-6 h-6 text-gray-400 transition-transform duration-200" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </button>
+            
+            <div v-if="openFaq === 0" class="px-8 pb-8 -mt-4">
+              <div class="ml-14 pt-4 border-t border-gray-100">
+                <p class="text-gray-700 leading-relaxed text-lg">
+                  Nejsme jen designové studio. Jsme brandoví architekti digitálního věku, kteří kombinují DESign + CODe + INOvation. Naše DCI filosofie znamená, že nevytváříme jen krásné věci, ale komplexní brandové ekosystémy s technologickou páteří. Učíme klienty, jak se svou značkou efektivně pracovat v digitálním světě.
                 </p>
               </div>
             </div>
+          </div>
 
-            <!-- FAQ Item 5 -->
-            <div class="bg-white rounded-xl p-8 shadow-sm border-l-4 border-primary">
-              <h3 class="text-xl font-800 text-dark mb-4">
-                Co když nejsme tech firma? Můžeme s vámi spolupracovat?
-              </h3>
-              <p class="text-gray-dark leading-relaxed mb-4">
-                Specializujeme se na tech firmy, ale spolupracujeme i s
-                <strong>ambiciózními značkami</strong> z jiných oborů, které sdílejí naši vizi
-                moderního brandingu a digitální excellence.
-              </p>
-              <p class="text-gray-dark leading-relaxed">
-                Pokud hledáte
-                <strong>strategický přístup, technologickou vyspělost a inovativní řešení</strong>,
-                budeme rádi, když si promluvíme o vašem projektu.
-              </p>
+          <!-- FAQ Item 2 -->
+          <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-gray-300">
+            <button
+              @click="toggleFaq(1)"
+              class="w-full p-8 text-left flex items-start gap-4 transition-all duration-200 hover:bg-gray-50"
+            >
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center text-white">
+                  <span class="text-xl">📈</span>
+                </div>
+              </div>
+              <div class="flex-grow">
+                <h3 class="text-xl font-bold text-gray-900 mb-2 pr-8">
+                  Jaký je váš proces spolupráce a jak dlouho trvá?
+                </h3>
+                <div class="inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                  <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  3-12 měsíců komplexní transformace
+                </div>
+              </div>
+              <div class="flex-shrink-0 ml-4">
+                <svg 
+                  :class="openFaq === 1 ? 'rotate-90' : ''"
+                  class="w-6 h-6 text-gray-400 transition-transform duration-200" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </button>
+            
+            <div v-if="openFaq === 1" class="px-8 pb-8 -mt-4">
+              <div class="ml-14 pt-4 border-t border-gray-100">
+                <p class="text-gray-700 leading-relaxed text-lg">
+                  Specializujeme se na dlouhodobé projektové zakázky 3-12 měsíců. Náš proces má 4 fáze: Brandová strategie (1-2m) → Kreativní koncept (1-2m) → Digitální implementace (2-4m) → Launch & optimalizace (1-3m). Nejde nám o rychlé řešení, ale o udržitelnou transformaci vaší značky.
+                </p>
+              </div>
             </div>
+          </div>
 
-            <!-- FAQ Item 6 -->
-            <div class="bg-white rounded-xl p-8 shadow-sm border-l-4 border-secondary">
-              <h3 class="text-xl font-800 text-dark mb-4">
-                Poskytujete nějakou formu podpory po dokončení projektu?
-              </h3>
-              <p class="text-gray-dark leading-relaxed mb-4">
-                <strong>Nezůstanete sami!</strong> Každý projekt zahrnuje post-launch podporu a
-                nabízíme několik způsobů pokračující spolupráce:
-              </p>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                <div class="space-y-2">
-                  <h4 class="font-600 text-dark">Zahrnuté v ceně:</h4>
-                  <ul class="space-y-1 text-gray-600">
-                    <li>• 30-60 dní post-launch podpora</li>
-                    <li>• Brand guidelines a dokumentace</li>
-                    <li>• Training pro váš tým</li>
-                  </ul>
+          <!-- FAQ Item 3 -->
+          <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-gray-300">
+            <button
+              @click="toggleFaq(2)"
+              class="w-full p-8 text-left flex items-start gap-4 transition-all duration-200 hover:bg-gray-50"
+            >
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
+                  <span class="text-xl">🛡️</span>
                 </div>
-                <div class="space-y-2">
-                  <h4 class="font-600 text-dark">Doplňkové služby:</h4>
-                  <ul class="space-y-1 text-gray-600">
-                    <li>• Brand maintenance (15-25k Kč/měsíc)</li>
-                    <li>• Strategic consulting (4.500 Kč/hod)</li>
-                    <li>• Campaign creative (2.500-3.500 Kč/hod)</li>
-                  </ul>
+              </div>
+              <div class="flex-grow">
+                <h3 class="text-xl font-bold text-gray-900 mb-2 pr-8">
+                  Co když nejsme tech firma? Můžeme s vámi spolupracovat?
+                </h3>
+                <div class="inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                  <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  Tech specializace + otevřenost ambiciózním značkám
                 </div>
+              </div>
+              <div class="flex-shrink-0 ml-4">
+                <svg 
+                  :class="openFaq === 2 ? 'rotate-90' : ''"
+                  class="w-6 h-6 text-gray-400 transition-transform duration-200" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </button>
+            
+            <div v-if="openFaq === 2" class="px-8 pb-8 -mt-4">
+              <div class="ml-14 pt-4 border-t border-gray-100">
+                <p class="text-gray-700 leading-relaxed text-lg">
+                  Specializujeme se na tech firmy, ale rádi spolupracujeme s ambiciózními značkami z jakéhokoli oboru, které sdílejí naši vizi moderního brandingu. Pokud hledáte strategický přístup, technologickou vyspělost a inovativní řešení, budeme rádi, když si promluvíme o vašem projektu.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-gray-300">
+            <button
+              @click="toggleFaq(3)"
+              class="w-full p-8 text-left flex items-start gap-4 transition-all duration-200 hover:bg-gray-50"
+            >
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center text-white">
+                  <span class="text-xl">⚡</span>
+                </div>
+              </div>
+              <div class="flex-grow">
+                <h3 class="text-xl font-bold text-gray-900 mb-2 pr-8">
+                  Jaké garance a podporu poskytujete?
+                </h3>
+                <div class="inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                  <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  Edukace a dlouhodobé partnerství
+                </div>
+              </div>
+              <div class="flex-shrink-0 ml-4">
+                <svg 
+                  :class="openFaq === 3 ? 'rotate-90' : ''"
+                  class="w-6 h-6 text-gray-400 transition-transform duration-200" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </button>
+            
+            <div v-if="openFaq === 3" class="px-8 pb-8 -mt-4">
+              <div class="ml-14 pt-4 border-t border-gray-100">
+                <p class="text-gray-700 leading-relaxed text-lg">
+                  Každý projekt zahrnuje komplexní předání know-how, brandové guidelines a školení vašeho týmu. Poskytujeme post-launch podporu a nabízíme pokračující spolupráci formou brandových konzultací, měsíční péče nebo rychlých projektů. Nezůstanete sami - jsme vaši průvodci v digitálním světě.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 5 -->
+          <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-gray-300">
+            <button
+              @click="toggleFaq(4)"
+              class="w-full p-8 text-left flex items-start gap-4 transition-all duration-200 hover:bg-gray-50"
+            >
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
+                  <span class="text-xl">🎯</span>
+                </div>
+              </div>
+              <div class="flex-grow">
+                <h3 class="text-xl font-bold text-gray-900 mb-2 pr-8">
+                  Můžeme začít menším projektem a postupně rozšiřovat?
+                </h3>
+                <div class="inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                  <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  Komplexnost před fragmentací
+                </div>
+              </div>
+              <div class="flex-shrink-0 ml-4">
+                <svg 
+                  :class="openFaq === 4 ? 'rotate-90' : ''"
+                  class="w-6 h-6 text-gray-400 transition-transform duration-200" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </button>
+            
+            <div v-if="openFaq === 4" class="px-8 pb-8 -mt-4">
+              <div class="ml-14 pt-4 border-t border-gray-100">
+                <p class="text-gray-700 leading-relaxed text-lg">
+                  Naším hlavním zaměřením jsou komplexní brandové transformace, které přinášejí skutečnou hodnotu. Pokud máte jasnou vizi a chcete budovat značku systematicky, rádi si promluvíme o tom, jak můžeme spolupracovat a postupně rozšiřovat naše partnerství.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 6 -->
+          <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-gray-300">
+            <button
+              @click="toggleFaq(5)"
+              class="w-full p-8 text-left flex items-start gap-4 transition-all duration-200 hover:bg-gray-50"
+            >
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center text-white">
+                  <span class="text-xl">📈</span>
+                </div>
+              </div>
+              <div class="flex-grow">
+                <h3 class="text-xl font-bold text-gray-900 mb-2 pr-8">
+                  Jak měříte úspěch projektů?
+                </h3>
+                <div class="inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                  <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  Business impact, ne jen krásný design
+                </div>
+              </div>
+              <div class="flex-shrink-0 ml-4">
+                <svg 
+                  :class="openFaq === 5 ? 'rotate-90' : ''"
+                  class="w-6 h-6 text-gray-400 transition-transform duration-200" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </button>
+            
+            <div v-if="openFaq === 5" class="px-8 pb-8 -mt-4">
+              <div class="ml-14 pt-4 border-t border-gray-100">
+                <p class="text-gray-700 leading-relaxed text-lg">
+                  Měříme reálný dopad na váš business - od zvýšení hodnoty značky přes lepší fundraising možnosti až po efektivnější komunikaci s klienty. Náš cíl není jen hezký design, ale značka, která vám pomože dosáhnout vašich business cílů a vyprávět příběh, který lidi skutečně zajímá.
+                </p>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- CTA Section -->
       </div>
     </section>
     <!-- Comparison Section -->
@@ -2503,6 +2957,160 @@ onMounted(() => {
 onUnmounted(() => {
   cleanupTimelineAnimation()
 })
+
+// Service Request Modal State
+const showServiceModal = ref(false)
+const showSuccessModal = ref(false)
+const isSubmitting = ref(false)
+
+// Service Form Data
+const serviceForm = reactive({
+  name: '',
+  email: '',
+  phone: '',
+  company: '',
+  position: '',
+  companySize: '',
+  growthStage: '',
+  timeline: '',
+  message: '',
+  gdprConsent: false,
+  // ROI data will be populated automatically
+  roiData: {}
+})
+
+// Open Service Request Modal
+const openServiceRequest = () => {
+  // Pre-populate ROI data
+  serviceForm.roiData = {
+    selectedPackage: calculator.selectedPackage,
+    investment: calculator.investment,
+    baselineTraffic: calculator.baselineTraffic,
+    baselineConversion: calculator.baselineConversion,
+    averageOrder: calculator.averageOrder,
+    profitMargin: calculator.profitMargin,
+    horizon: calculator.horizon,
+    projectedROI: results.value.roi,
+    incrementalProfit: results.value.incrementalProfit,
+    paybackPeriod: results.value.paybackPeriod
+  }
+  
+  showServiceModal.value = true
+  // Prevent body scroll
+  document.body.style.overflow = 'hidden'
+}
+
+// Close Service Request Modal
+const closeServiceModal = () => {
+  showServiceModal.value = false
+  document.body.style.overflow = 'auto'
+}
+
+// Close Success Modal
+const closeSuccessModal = () => {
+  showSuccessModal.value = false
+  document.body.style.overflow = 'auto'
+  // Reset form
+  Object.keys(serviceForm).forEach(key => {
+    if (key !== 'roiData') {
+      serviceForm[key] = key === 'gdprConsent' ? false : ''
+    }
+  })
+}
+
+// Get Package Title
+const getPackageTitle = (packageId: string): string => {
+  const titles = {
+    'tech-essentials': 'Tech Essentials',
+    'scale-ready': 'Scale Ready',
+    'market-leader': 'Market Leader'
+  }
+  return titles[packageId as keyof typeof titles] || packageId
+}
+
+// Submit Service Request
+const submitServiceRequest = async () => {
+  isSubmitting.value = true
+  
+  try {
+    // Prepare data for submission
+    const submissionData = {
+      // Contact info
+      contact: {
+        name: serviceForm.name,
+        email: serviceForm.email,
+        phone: serviceForm.phone,
+        company: serviceForm.company,
+        position: serviceForm.position,
+        companySize: serviceForm.companySize,
+        growthStage: serviceForm.growthStage,
+        timeline: serviceForm.timeline,
+        message: serviceForm.message
+      },
+      // ROI calculation data
+      roiCalculation: serviceForm.roiData,
+      // Metadata
+      timestamp: new Date().toISOString(),
+      source: 'roi-calculator'
+    }
+
+    // Here you would make the API call to your backend
+    // Example:
+    // const response = await fetch('/api/service-requests', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(submissionData)
+    // })
+
+    // For demo purposes, simulate API call
+    await new Promise(resolve => setTimeout(resolve, 2000))
+
+    // Log the data (remove in production)
+    console.log('Service request submitted:', submissionData)
+
+    // Show success modal
+    closeServiceModal()
+    showSuccessModal.value = true
+
+    // Optional: Send to analytics
+    // gtag('event', 'service_request', {
+    //   'package': serviceForm.roiData.selectedPackage,
+    //   'roi': serviceForm.roiData.projectedROI,
+    //   'company_size': serviceForm.companySize
+    // })
+
+  } catch (error) {
+    console.error('Error submitting service request:', error)
+    alert('Došlo k chybě při odesílání. Zkuste to prosím znovu nebo nás kontaktujte přímo.')
+  } finally {
+    isSubmitting.value = false
+  }
+}
+
+// Close modals on Escape key
+const handleKeyDown = (event: KeyboardEvent) => {
+  if (event.key === 'Escape') {
+    if (showServiceModal.value) {
+      closeServiceModal()
+    }
+    if (showSuccessModal.value) {
+      closeSuccessModal()
+    }
+  }
+}
+
+// Add event listeners
+onMounted(() => {
+  document.addEventListener('keydown', handleKeyDown)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('keydown', handleKeyDown)
+  // Clean up body overflow if modals are open
+  document.body.style.overflow = 'auto'
+})
 </script>
 
 <style scoped>
@@ -2510,16 +3118,14 @@ onUnmounted(() => {
   scroll-margin-top: 100px;
 }
 
-/* FAQ Accordion Animations */
+/* FAQ Accordion Animations - ENHANCED */
 .faq-item {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .faq-item:hover {
   transform: translateY(-2px);
-  box-shadow:
-    0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .animate-fade-in {
@@ -2535,7 +3141,7 @@ onUnmounted(() => {
     opacity: 1;
     transform: translateY(0);
   }
-}
+} \s
 
 /* Comparison Table Enhancements */
 .comparison-card {
