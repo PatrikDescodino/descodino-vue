@@ -179,7 +179,7 @@
             <div
               class="bg-light rounded-2xl p-8 lg:p-12 shadow-md border-2 border-primary relative transform scale-102 transition-all duration-500 group"
             >
-              <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <div class="absolute -top-4 left-1/2 transform scale-102">
                 <span class="bg-primary text-light px-6 py-2 rounded-full text-sm font-600"
                   >Nejoblíbenější</span
                 >
@@ -923,9 +923,7 @@
               :class="{ 'step-visible': visibleSteps.has(0) }"
             >
               <!-- Timeline node -->
-              <div
-                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-20 timeline-node"
-              >
+              <div class="absolute left-1/2 transform top-1/2 z-20 timeline-node">
                 <div
                   class="w-16 h-16 bg-secondary text-light rounded-full flex-center text-2xl font-800 shadow-lg border-4 border-white timeline-node-circle"
                 >
@@ -999,9 +997,7 @@
               :class="{ 'step-visible': visibleSteps.has(1) }"
             >
               <!-- Timeline node -->
-              <div
-                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-20 timeline-node"
-              >
+              <div class="absolute left-1/2 transform top-1/2 z-20 timeline-node">
                 <div
                   class="w-16 h-16 bg-primary text-light rounded-full flex-center text-2xl font-800 shadow-lg border-4 border-white timeline-node-circle"
                 >
@@ -1067,9 +1063,7 @@
               :class="{ 'step-visible': visibleSteps.has(2) }"
             >
               <!-- Timeline node -->
-              <div
-                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-20 timeline-node"
-              >
+              <div class="absolute left-1/2 transform top-1/2 z-20 timeline-node">
                 <div
                   class="w-16 h-16 bg-secondary text-light rounded-full flex-center text-2xl font-800 shadow-lg border-4 border-white timeline-node-circle"
                 >
@@ -1143,9 +1137,7 @@
               :class="{ 'step-visible': visibleSteps.has(3) }"
             >
               <!-- Timeline node -->
-              <div
-                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-20 timeline-node"
-              >
+              <div class="absolute left-1/2 transform top-1/2 z-20 timeline-node">
                 <div
                   class="w-16 h-16 bg-primary text-light rounded-full flex-center text-2xl font-800 shadow-lg border-4 border-white timeline-node-circle"
                 >
@@ -2572,7 +2564,7 @@ onUnmounted(() => {
 
 /* Hover effects for key differentiators */
 .group:hover .absolute {
-  transform: scale(1.5) rotate(45deg);
+  transform: scale(1.1) rotate(10deg);
 }
 .timeline-track {
   will-change: transform;
@@ -2698,10 +2690,6 @@ select:focus {
   transform: translateY(-2px);
 }
 
-.group:hover {
-  transform: translateY(-4px);
-}
-
 /* Mobile responsive adjustments */
 
 /* Custom slider styling */
@@ -2742,7 +2730,8 @@ select:focus {
 
 /* Hover effects for guarantees */
 .group:hover {
-  transform: translateY(-4px);
+  transform: translateY(-1px);
+  transform: scale(1.05);
 }
 
 .cta-card {
