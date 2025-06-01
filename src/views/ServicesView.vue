@@ -8,7 +8,7 @@
           Od pre-seed startupů po enterprise. Transparentní ceny, jasné deliverables a garantovaný
           ROI. Vyberte si balíček podle vašich ambicí a my se postaráme o transformaci vaší značky.
         </p>
-
+        s
         <!-- Hero Stats -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
           <div class="text-center">
@@ -1460,190 +1460,644 @@
         </div>
       </div>
     </section>
-    <tr>
-      <td class="p-8 text-center border-r border-gray-200">
-        <div class="flex flex-col items-center gap-3">
-          <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">✗</div>
-          <div class="text-sm text-gray-600">6-12 měsíců</div>
+    <!-- Comparison Section -->
+    <section class="py-24 bg-light">
+      <div class="max-w-7xl mx-auto px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Proč si vybrat Descodino?</h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Objektivní srovnání s dalšími možnostmi na trhu. Vidíte přesně, proč jsme správná volba
+            pro vaši tech firmu.
+          </p>
         </div>
-      </td>
-      <td class="p-8 text-center">
-        <div class="flex flex-col items-center gap-3">
-          <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl">?</div>
-          <div class="text-sm text-gray-600">Rychlé, ale neúplné</div>
-        </div>
-      </td>
-    </tr>
 
-    <!-- Row 5: Strategic Thinking -->
-    <tr class="border-t border-gray-200 hover:bg-gray-25 transition-colors duration-200">
-      <td class="p-8 font-600 text-dark border-r border-gray-200">
-        <div class="flex items-center gap-3">
-          <span class="text-xl">🧠</span>
-          <span>Strategické myšlení</span>
-        </div>
-      </td>
-      <td class="p-8 text-center bg-primary/5 border-l border-r border-primary/20">
-        <div class="flex flex-col items-center gap-3">
-          <div
-            class="w-12 h-12 bg-green-500 text-white rounded-full flex-center text-xl font-800 animate-pulse"
-          >
-            ✓
+        <!-- Comprehensive Comparison Table -->
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <!-- Header -->
+              <thead class="bg-gradient-to-r from-gray-900 to-gray-800 text-white">
+                <tr>
+                  <th class="p-6 text-left font-bold text-lg"></th>
+                  <th
+                    class="p-6 text-center font-bold text-lg bg-primary/20 border-l border-r border-primary/30"
+                  >
+                    <div class="flex flex-col items-center gap-2">
+                      <span class="text-2xl">🏆</span>
+                      <span>Descodino</span>
+                      <span class="text-xs bg-primary text-white px-3 py-1 rounded-full"
+                        >Specializace na tech</span
+                      >
+                    </div>
+                  </th>
+                  <th class="p-6 text-center font-bold text-lg border-r border-gray-600">
+                    <div class="flex flex-col items-center gap-2">
+                      <span class="text-2xl">👤</span>
+                      <span>Freelanceři</span>
+                      <span class="text-xs bg-gray-600 text-white px-3 py-1 rounded-full"
+                        >Levné řešení</span
+                      >
+                    </div>
+                  </th>
+                  <th class="p-6 text-center font-bold text-lg border-r border-gray-600">
+                    <div class="flex flex-col items-center gap-2">
+                      <span class="text-2xl">🏢</span>
+                      <span>Velké agentury</span>
+                      <span class="text-xs bg-gray-600 text-white px-3 py-1 rounded-full"
+                        >Drahé & pomalé</span
+                      >
+                    </div>
+                  </th>
+                  <th class="p-6 text-center font-bold text-lg">
+                    <div class="flex flex-col items-center gap-2">
+                      <span class="text-2xl">⚡</span>
+                      <span>Online platformy</span>
+                      <span class="text-xs bg-gray-600 text-white px-3 py-1 rounded-full"
+                        >Rychlé & obecné</span
+                      >
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <!-- Row 1: Tech Expertise -->
+                <tr class="border-t border-gray-200 table-row transition-colors duration-200">
+                  <td class="p-8 font-semibold text-gray-900 border-r border-gray-200">
+                    <div class="flex items-center gap-3">
+                      <span class="text-xl">🎯</span>
+                      <span>Tech expertise</span>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center bg-primary/5 border-l border-r border-primary/20">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-green-500 text-white rounded-full flex-center text-xl font-bold animate-pulse"
+                      >
+                        ✓
+                      </div>
+                      <div class="text-sm text-gray-600 font-semibold">
+                        Native tech understanding
+                      </div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl"
+                      >
+                        ?
+                      </div>
+                      <div class="text-sm text-gray-600">Závisí na jedinci</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl"
+                      >
+                        ?
+                      </div>
+                      <div class="text-sm text-gray-600">Obecný přístup</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center">
+                    <div class="flex flex-col items-center gap-3">
+                      <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">
+                        ✗
+                      </div>
+                      <div class="text-sm text-gray-600">Žádná specializace</div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 2: Speed to Market -->
+                <tr
+                  class="border-t border-gray-200 bg-gray-25 table-row transition-colors duration-200"
+                >
+                  <td class="p-8 font-semibold text-gray-900 border-r border-gray-200">
+                    <div class="flex items-center gap-3">
+                      <span class="text-xl">⚡</span>
+                      <span>Time-to-market</span>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center bg-primary/5 border-l border-r border-primary/20">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-green-500 text-white rounded-full flex-center text-xl font-bold animate-pulse"
+                      >
+                        ✓
+                      </div>
+                      <div class="text-sm text-gray-600 font-semibold">2-4 měsíce guaranteed</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl"
+                      >
+                        ?
+                      </div>
+                      <div class="text-sm text-gray-600">Nepředvídatelné</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">
+                        ✗
+                      </div>
+                      <div class="text-sm text-gray-600">6-12+ měsíců</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-green-500 text-white rounded-full flex-center text-xl"
+                      >
+                        ✓
+                      </div>
+                      <div class="text-sm text-gray-600">Rychlé, ale šablonové</div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 3: Comprehensive Service -->
+                <tr class="border-t border-gray-200 table-row transition-colors duration-200">
+                  <td class="p-8 font-semibold text-gray-900 border-r border-gray-200">
+                    <div class="flex items-center gap-3">
+                      <span class="text-xl">🔧</span>
+                      <span>All-in-one řešení</span>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center bg-primary/5 border-l border-r border-primary/20">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-green-500 text-white rounded-full flex-center text-xl font-bold animate-pulse"
+                      >
+                        ✓
+                      </div>
+                      <div class="text-sm text-gray-600 font-semibold">
+                        Strategy + Design + Code
+                      </div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">
+                        ✗
+                      </div>
+                      <div class="text-sm text-gray-600">Jen částečné služby</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl"
+                      >
+                        ?
+                      </div>
+                      <div class="text-sm text-gray-600">Ano, ale předražené</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center">
+                    <div class="flex flex-col items-center gap-3">
+                      <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">
+                        ✗
+                      </div>
+                      <div class="text-sm text-gray-600">Jen základy</div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 4: Quality Guarantee -->
+                <tr
+                  class="border-t border-gray-200 bg-gray-25 table-row transition-colors duration-200"
+                >
+                  <td class="p-8 font-semibold text-gray-900 border-r border-gray-200">
+                    <div class="flex items-center gap-3">
+                      <span class="text-xl">💎</span>
+                      <span>Garance kvality</span>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center bg-primary/5 border-l border-r border-primary/20">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-green-500 text-white rounded-full flex-center text-xl font-bold animate-pulse"
+                      >
+                        ✓
+                      </div>
+                      <div class="text-sm text-gray-600 font-semibold">Unlimited revize</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">
+                        ✗
+                      </div>
+                      <div class="text-sm text-gray-600">Omezené revize</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl"
+                      >
+                        ?
+                      </div>
+                      <div class="text-sm text-gray-600">Ano, ale drahé změny</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center">
+                    <div class="flex flex-col items-center gap-3">
+                      <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">
+                        ✗
+                      </div>
+                      <div class="text-sm text-gray-600">Co je, to je</div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 5: Strategic Thinking -->
+                <tr class="border-t border-gray-200 table-row transition-colors duration-200">
+                  <td class="p-8 font-semibold text-gray-900 border-r border-gray-200">
+                    <div class="flex items-center gap-3">
+                      <span class="text-xl">🧠</span>
+                      <span>Strategické myšlení</span>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center bg-primary/5 border-l border-r border-primary/20">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-green-500 text-white rounded-full flex-center text-xl font-bold animate-pulse"
+                      >
+                        ✓
+                      </div>
+                      <div class="text-sm text-gray-600 font-semibold">Business-first přístup</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">
+                        ✗
+                      </div>
+                      <div class="text-sm text-gray-600">Jen vykonávání</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl"
+                      >
+                        ?
+                      </div>
+                      <div class="text-sm text-gray-600">Obecné postupy</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center">
+                    <div class="flex flex-col items-center gap-3">
+                      <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">
+                        ✗
+                      </div>
+                      <div class="text-sm text-gray-600">Žádná strategie</div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 6: Post-launch Support -->
+                <tr
+                  class="border-t border-gray-200 bg-gray-25 table-row transition-colors duration-200"
+                >
+                  <td class="p-8 font-semibold text-gray-900 border-r border-gray-200">
+                    <div class="flex items-center gap-3">
+                      <span class="text-xl">🚀</span>
+                      <span>Post-launch podpora</span>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center bg-primary/5 border-l border-r border-primary/20">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-green-500 text-white rounded-full flex-center text-xl font-bold animate-pulse"
+                      >
+                        ✓
+                      </div>
+                      <div class="text-sm text-gray-600 font-semibold">30-60 dní zdarma</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">
+                        ✗
+                      </div>
+                      <div class="text-sm text-gray-600">Žádná nebo drahá</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl"
+                      >
+                        ?
+                      </div>
+                      <div class="text-sm text-gray-600">Ano, ale předražená</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center">
+                    <div class="flex flex-col items-center gap-3">
+                      <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">
+                        ✗
+                      </div>
+                      <div class="text-sm text-gray-600">Žádná podpora</div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 7: Price Transparency -->
+                <tr class="border-t border-gray-200 table-row transition-colors duration-200">
+                  <td class="p-8 font-semibold text-gray-900 border-r border-gray-200">
+                    <div class="flex items-center gap-3">
+                      <span class="text-xl">💰</span>
+                      <span>Transparentní ceny</span>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center bg-primary/5 border-l border-r border-primary/20">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-green-500 text-white rounded-full flex-center text-xl font-bold animate-pulse"
+                      >
+                        ✓
+                      </div>
+                      <div class="text-sm text-gray-600 font-semibold">Fixed price balíčky</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl"
+                      >
+                        ?
+                      </div>
+                      <div class="text-sm text-gray-600">Hodinové sazby</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">
+                        ✗
+                      </div>
+                      <div class="text-sm text-gray-600">Skryté náklady</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-green-500 text-white rounded-full flex-center text-xl"
+                      >
+                        ✓
+                      </div>
+                      <div class="text-sm text-gray-600">Fixní ceny</div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 8: ROI Focus -->
+                <tr
+                  class="border-t border-gray-200 bg-gray-25 table-row transition-colors duration-200"
+                >
+                  <td class="p-8 font-semibold text-gray-900 border-r border-gray-200">
+                    <div class="flex items-center gap-3">
+                      <span class="text-xl">📈</span>
+                      <span>Zaměření na ROI</span>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center bg-primary/5 border-l border-r border-primary/20">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-green-500 text-white rounded-full flex-center text-xl font-bold animate-pulse"
+                      >
+                        ✓
+                      </div>
+                      <div class="text-sm text-gray-600 font-semibold">
+                        Průměrně 3-6x návratnost
+                      </div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">
+                        ✗
+                      </div>
+                      <div class="text-sm text-gray-600">Bez business pohledu</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl"
+                      >
+                        ?
+                      </div>
+                      <div class="text-sm text-gray-600">Měří awareness</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center">
+                    <div class="flex flex-col items-center gap-3">
+                      <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">
+                        ✗
+                      </div>
+                      <div class="text-sm text-gray-600">Žádné metriky</div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 9: Technical Implementation -->
+                <tr class="border-t border-gray-200 table-row transition-colors duration-200">
+                  <td class="p-8 font-semibold text-gray-900 border-r border-gray-200">
+                    <div class="flex items-center gap-3">
+                      <span class="text-xl">⚙️</span>
+                      <span>Tech implementace</span>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center bg-primary/5 border-l border-r border-primary/20">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-green-500 text-white rounded-full flex-center text-xl font-bold animate-pulse"
+                      >
+                        ✓
+                      </div>
+                      <div class="text-sm text-gray-600 font-semibold">Production-ready kod</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl"
+                      >
+                        ?
+                      </div>
+                      <div class="text-sm text-gray-600">Závisí na skillech</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl"
+                      >
+                        ?
+                      </div>
+                      <div class="text-sm text-gray-600">Outsource developerům</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center">
+                    <div class="flex flex-col items-center gap-3">
+                      <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">
+                        ✗
+                      </div>
+                      <div class="text-sm text-gray-600">Šablonové řešení</div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 10: Scalability -->
+                <tr
+                  class="border-t border-gray-200 bg-gray-25 table-row transition-colors duration-200"
+                >
+                  <td class="p-8 font-semibold text-gray-900 border-r border-gray-200">
+                    <div class="flex items-center gap-3">
+                      <span class="text-xl">📊</span>
+                      <span>Škálovatelnost</span>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center bg-primary/5 border-l border-r border-primary/20">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-green-500 text-white rounded-full flex-center text-xl font-bold animate-pulse"
+                      >
+                        ✓
+                      </div>
+                      <div class="text-sm text-gray-600 font-semibold">Navrženo pro růst</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">
+                        ✗
+                      </div>
+                      <div class="text-sm text-gray-600">Jednorázové řešení</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center border-r border-gray-200">
+                    <div class="flex flex-col items-center gap-3">
+                      <div
+                        class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl"
+                      >
+                        ?
+                      </div>
+                      <div class="text-sm text-gray-600">Ano, ale drahé</div>
+                    </div>
+                  </td>
+                  <td class="p-8 text-center">
+                    <div class="flex flex-col items-center gap-3">
+                      <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">
+                        ✗
+                      </div>
+                      <div class="text-sm text-gray-600">Rigidní šablony</div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="text-sm text-gray-600 font-600">Business focus</div>
         </div>
-      </td>
-      <td class="p-8 text-center border-r border-gray-200">
-        <div class="flex flex-col items-center gap-3">
-          <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">✗</div>
-          <div class="text-sm text-gray-600">Pouze exekuce</div>
-        </div>
-      </td>
-      <td class="p-8 text-center border-r border-gray-200">
-        <div class="flex flex-col items-center gap-3">
-          <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl">?</div>
-          <div class="text-sm text-gray-600">Ano, ale generické</div>
-        </div>
-      </td>
-      <td class="p-8 text-center">
-        <div class="flex flex-col items-center gap-3">
-          <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl">?</div>
-          <div class="text-sm text-gray-600">Střední úroveň</div>
-        </div>
-      </td>
-    </tr>
 
-    <!-- Row 6: Post-launch Support -->
-    <tr class="border-t border-gray-200 bg-gray-25 hover:bg-gray-50 transition-colors duration-200">
-      <td class="p-8 font-600 text-dark border-r border-gray-200">
-        <div class="flex items-center gap-3">
-          <span class="text-xl">🚀</span>
-          <span>Post-launch podpora</span>
-        </div>
-      </td>
-      <td class="p-8 text-center bg-primary/5 border-l border-r border-primary/20">
-        <div class="flex flex-col items-center gap-3">
-          <div
-            class="w-12 h-12 bg-green-500 text-white rounded-full flex-center text-xl font-800 animate-pulse"
-          >
-            ✓
-          </div>
-          <div class="text-sm text-gray-600 font-600">30-60 dní zdarma</div>
-        </div>
-      </td>
-      <td class="p-8 text-center border-r border-gray-200">
-        <div class="flex flex-col items-center gap-3">
-          <div class="w-12 h-12 bg-red-500 text-white rounded-full flex-center text-xl">✗</div>
-          <div class="text-sm text-gray-600">Žádná nebo drahá</div>
-        </div>
-      </td>
-      <td class="p-8 text-center border-r border-gray-200">
-        <div class="flex flex-col items-center gap-3">
-          <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl">?</div>
-          <div class="text-sm text-gray-600">Ano, ale drahá</div>
-        </div>
-      </td>
-      <td class="p-8 text-center">
-        <div class="flex flex-col items-center gap-3">
-          <div class="w-12 h-12 bg-yellow-500 text-white rounded-full flex-center text-xl">?</div>
-          <div class="text-sm text-gray-600">Omezená</div>
-        </div>
-      </td>
-    </tr>
-
-    <!-- Interactive Key Differentiators -->
-    <div class="mt-20">
-      <h3 class="text-2xl font-800 text-center mb-12">Naše klíčové výhody</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Tech DNA Card -->
-        <div
-          class="group relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10 rounded-3xl p-8 border border-primary/20 hover:border-primary transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
-        >
-          <div
-            class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"
-          ></div>
-          <div class="relative z-10">
-            <div
-              class="w-16 h-16 bg-primary/20 rounded-2xl flex-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300"
-            >
-              <span class="text-3xl">🎯</span>
+        <!-- Key Takeaways -->
+        <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Freelanceři -->
+          <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-yellow-500">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-3xl">👤</span>
+              <h3 class="text-xl font-bold">Freelanceři</h3>
             </div>
-            <h3
-              class="text-xl font-800 mb-4 group-hover:text-primary transition-colors duration-300"
-            >
-              Tech DNA
-            </h3>
-            <p class="text-gray-dark leading-relaxed mb-4">
-              Nejen rozumíme tech světu, ale žijeme v něm. Víme, co tech firmy potřebují pro úspěch.
-            </p>
-            <div
-              class="text-sm text-primary font-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              Specializace na tech od roku 2020 →
+            <div class="space-y-3">
+              <div class="flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span class="text-sm">Často levnější na začátku</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-red-500">✗</span>
+                <span class="text-sm">Negarantovaná kvalita</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-red-500">✗</span>
+                <span class="text-sm">Žádná podpora po dokončení</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-red-500">✗</span>
+                <span class="text-sm">Bez strategického pohledu</span>
+              </div>
             </div>
           </div>
-        </div>
+          <!-- Velké agentury -->
+          <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-red-500">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-3xl">🏢</span>
+              <h3 class="text-xl font-bold">Velké agentury</h3>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span class="text-sm">Komplexní služby</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-yellow-500">?</span>
+                <span class="text-sm">Dlouhé procesy</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-red-500">✗</span>
+                <span class="text-sm">Vysoké náklady</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-red-500">✗</span>
+                <span class="text-sm">Pomalá komunikace</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-red-500">✗</span>
+                <span class="text-sm">Obecný přístup</span>
+              </div>
+            </div>
+          </div>
 
-        <!-- All-in-One Card -->
-        <div
-          class="group relative overflow-hidden bg-gradient-to-br from-secondary/5 to-secondary/10 rounded-3xl p-8 border border-secondary/20 hover:border-secondary transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
-        >
-          <div
-            class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"
-          ></div>
-          <div class="relative z-10">
-            <div
-              class="w-16 h-16 bg-secondary/20 rounded-2xl flex-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300"
-            >
+          <!-- Online platformy -->
+          <div class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-blue-500">
+            <div class="flex items-center gap-3 mb-4">
               <span class="text-3xl">⚡</span>
+              <h3 class="text-xl font-bold">Online platformy</h3>
             </div>
-            <h3
-              class="text-xl font-800 mb-4 group-hover:text-secondary transition-colors duration-300"
-            >
-              All-in-One
-            </h3>
-            <p class="text-gray-dark leading-relaxed mb-4">
-              Strategy + Design + Development + Marketing v jednom týmu. Žádná koordinace 5
-              dodavatelů.
-            </p>
-            <div
-              class="text-sm text-secondary font-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              Jeden tým, jeden cíl →
-            </div>
-          </div>
-        </div>
-
-        <!-- Guaranteed ROI Card -->
-        <div
-          class="group relative overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10 rounded-3xl p-8 border border-primary/20 hover:border-primary transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
-        >
-          <div
-            class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"
-          ></div>
-          <div class="relative z-10">
-            <div
-              class="w-16 h-16 bg-primary/20 rounded-2xl flex-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300"
-            >
-              <span class="text-3xl">📈</span>
-            </div>
-            <h3
-              class="text-xl font-800 mb-4 group-hover:text-primary transition-colors duration-300"
-            >
-              Garantovaný ROI
-            </h3>
-            <p class="text-gray-dark leading-relaxed mb-4">
-              Nedělíme loga, ale investice s měřitelným dopadem na váš business a růst.
-            </p>
-            <div
-              class="text-sm text-primary font-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              Průměrně 3-6x návratnost →
+            <div class="space-y-3">
+              <div class="flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span class="text-sm">Rychlé spuštění</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span class="text-sm">Transparentní ceny</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-red-500">✗</span>
+                <span class="text-sm">Šablonová řešení</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-red-500">✗</span>
+                <span class="text-sm">Omezená customizace</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-red-500">✗</span>
+                <span class="text-sm">Žádná tech expertise</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- CTA Section - Redesigned with 4 Action Cards -->
     <section class="section-padding bg-dark text-light relative overflow-hidden">
@@ -2249,19 +2703,6 @@ select:focus {
 }
 
 /* Mobile responsive adjustments */
-@media (max-width: 1023px) {
-  .lg\:text-right {
-    text-align: left !important;
-  }
-
-  .lg\:justify-end {
-    justify-content: center !important;
-  }
-
-  .lg\:justify-start {
-    justify-content: center !important;
-  }
-}
 
 /* Custom slider styling */
 .slider::-webkit-slider-thumb {
@@ -2304,21 +2745,6 @@ select:focus {
   transform: translateY(-4px);
 }
 
-/* Mobile responsive adjustments */
-@media (max-width: 1023px) {
-  .lg\\:text-right {
-    text-align: left !important;
-  }
-
-  .lg\\:justify-end {
-    justify-content: center !important;
-  }
-
-  .lg\\:justify-start {
-    justify-content: center !important;
-  }
-}
-
 .cta-card {
   border-radius: 1.5rem;
   backdrop-filter: blur(10px);
@@ -2354,7 +2780,20 @@ select:focus {
 .cta-card:nth-child(4) {
   animation-delay: 0.4s;
 }
+/* Mobile responsive adjustments */
+@media (max-width: 1023px) {
+  .lg\\:text-right {
+    text-align: left !important;
+  }
 
+  .lg\\:justify-end {
+    justify-content: center !important;
+  }
+
+  .lg\\:justify-start {
+    justify-content: center !important;
+  }
+}
 /* Mobile responsive */
 @media (max-width: 768px) {
   .cta-card {
