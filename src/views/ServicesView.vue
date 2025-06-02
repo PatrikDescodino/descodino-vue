@@ -8,7 +8,7 @@
           Od pre-seed startupů po enterprise. Transparentní ceny, jasné deliverables a garantovaný
           ROI. Vyberte si balíček podle vašich ambicí a my se postaráme o transformaci vaší značky.
         </p>
-        s
+        
         <!-- Hero Stats -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
           <div class="text-center">
