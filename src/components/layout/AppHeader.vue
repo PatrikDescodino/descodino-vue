@@ -3,13 +3,7 @@
     <!-- Logo - toggle menu -->
     <div class="nav-item logo-item">
       <button @click="toggleMenu" class="nav-link logo-link" aria-label="Descodino - Menu">
-        <img
-          src="/public/Big FullColor.png"
-          alt="Descodino"
-          width="150"
-          height="45"
-          class="h-12 w-auto"
-        />
+        <img src="/Big FullColor.png" alt="Descodino" width="150" height="45" class="h-12 w-auto" />
         <!-- Animated bubble hint -->
         <div class="menu-bubble" :class="{ visible: showBubble && !isMenuOpen }">
           <span>MENU</span>

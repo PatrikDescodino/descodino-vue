@@ -71,9 +71,7 @@
           </p>
         </div>
 
-        <!-- CTA Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          <!-- ROI Calculator CTA -->
           <div
             class="cta-card group bg-gradient-to-br from-secondary/20 to-secondary/5 border border-secondary/30 hover:border-secondary transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 cursor-pointer"
             @click="scrollToROI"
@@ -89,6 +87,7 @@
                   📊
                 </div>
               </div>
+
               <h3
                 class="text-xl font-800 text-light group-hover:text-secondary transition-colors duration-300"
               >
@@ -97,6 +96,7 @@
               <p class="text-sm text-gray-300 leading-relaxed">
                 Zjistěte potenciální návratnost investice do brandingu pro vaši firmu
               </p>
+
               <div class="pt-4">
                 <span class="text-secondary font-600 text-sm group-hover:underline">
                   Spočítat výsledky →
@@ -105,7 +105,6 @@
             </div>
           </div>
 
-          <!-- Contact CTA -->
           <div
             class="cta-card group bg-gradient-to-br from-primary/30 to-primary/10 border-2 border-primary transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 cursor-pointer relative"
             @click="$emit('openContactModal')"
@@ -115,6 +114,7 @@
                 Nejčastější
               </span>
             </div>
+
             <div class="p-8 text-center space-y-4">
               <div class="relative mx-auto w-16 h-16 mb-6">
                 <div
@@ -126,6 +126,7 @@
                   📞
                 </div>
               </div>
+
               <h3
                 class="text-xl font-800 text-light group-hover:text-primary transition-colors duration-300"
               >
@@ -134,6 +135,7 @@
               <p class="text-sm text-gray-300 leading-relaxed">
                 30min strategický hovor o vašich brandingových potřebách a možnostech
               </p>
+
               <div class="pt-4">
                 <span class="text-primary font-600 text-sm group-hover:underline">
                   Naplánovat schůzku →
@@ -142,7 +144,6 @@
             </div>
           </div>
 
-          <!-- About CTA -->
           <div
             class="cta-card group bg-gradient-to-br from-gray-700/50 to-gray-800/30 border border-gray-600 hover:border-gray-400 transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 cursor-pointer"
           >
@@ -158,6 +159,7 @@
                     👥
                   </div>
                 </div>
+
                 <h3
                   class="text-xl font-800 text-light group-hover:text-gray-300 transition-colors duration-300"
                 >
@@ -166,6 +168,7 @@
                 <p class="text-sm text-gray-300 leading-relaxed">
                   Zjistěte více o lidech za Descodino a našich zkušenostech s tech firmami
                 </p>
+
                 <div class="pt-4">
                   <span class="text-gray-300 font-600 text-sm group-hover:underline">
                     O našem týmu →
@@ -175,7 +178,6 @@
             </RouterLink>
           </div>
 
-          <!-- Email CTA -->
           <div
             class="cta-card group bg-gradient-to-br from-gray-700/50 to-gray-800/30 border border-gray-600 hover:border-gray-400 transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 cursor-pointer"
           >
@@ -191,6 +193,7 @@
                     ✉️
                   </div>
                 </div>
+
                 <h3
                   class="text-xl font-800 text-light group-hover:text-gray-300 transition-colors duration-300"
                 >
@@ -199,6 +202,7 @@
                 <p class="text-sm text-gray-300 leading-relaxed">
                   Preferujete písemnou komunikaci? Napište nám přímo na email
                 </p>
+
                 <div class="pt-4">
                   <span class="text-gray-300 font-600 text-sm group-hover:underline">
                     ahoj@descodino.cz →
@@ -262,6 +266,84 @@ const openServiceRequest = () => {
   min-height: 100vh;
 }
 
+.section-padding {
+  padding: 6rem 0;
+}
+
+.container-custom {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding: 0 2rem;
+  }
+}
+
+.heading-xl {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.heading-lg {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.body-lg {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.bg-light {
+  background-color: #f8f9fa;
+}
+
+.bg-dark {
+  background-color: #1f2937;
+}
+
+.text-light {
+  color: white;
+}
+
+.text-gray-dark {
+  color: #4b5563;
+}
+
+.text-gray-300 {
+  color: #d1d5db;
+}
+
+.text-gray-400 {
+  color: #9ca3af;
+}
+
+.text-primary {
+  color: #e60000;
+}
+
+.text-secondary {
+  color: #96b623;
+}
+
+.font-600 {
+  font-weight: 600;
+}
+
+.font-800 {
+  font-weight: 800;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .cta-card {
   border-radius: 1.5rem;
   backdrop-filter: blur(10px);
@@ -292,6 +374,14 @@ const openServiceRequest = () => {
 
   .cta-card:hover {
     transform: translateY(-4px) !important;
+  }
+
+  .heading-xl {
+    font-size: 2rem;
+  }
+
+  .heading-lg {
+    font-size: 2rem;
   }
 }
 </style>
