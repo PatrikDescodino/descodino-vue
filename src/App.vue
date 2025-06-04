@@ -12,16 +12,20 @@
 
     <!-- Main Content -->
     <main class="pt-20">
-      <RouterView />
+      <RouterView @open-contact-modal="openContactModal" />
     </main>
 
     <!-- Footer -->
     <AppFooter />
 
     <!-- Contact Modal -->
-    <BaseModal v-model:show="showContactModal" title="Pojďme si popovídat o vašem brandingu">
+    <Modal
+      v-model="showContactModal"
+      title="Pojďme si popovídat o vašem brandingu"
+      size="md"
+    >
       <ContactForm @close="closeContactModal" />
-    </BaseModal>
+    </Modal>
   </div>
 </template>
 
@@ -29,7 +33,7 @@
 import { ref, onMounted } from 'vue'
 import AppHeader from './components/layout/AppHeader.vue'
 import AppFooter from './components/layout/AppFooter.vue'
-import BaseModal from './components/ui/BaseModal.vue'
+import Modal from './components/ui/Modal.vue'
 import ContactForm from './components/ui/ContactForm.vue'
 
 // State
